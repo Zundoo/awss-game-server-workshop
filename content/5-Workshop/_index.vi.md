@@ -1,9 +1,9 @@
 ---
-title : "Tổng quan Workshop"
-date : "`r Sys.Date()`"
-weight : 1
-chapter : true
-pre : " <b> 5. </b> "
+title: "Tổng quan Workshop"
+date: "`r Sys.Date()`"
+weight: 1
+chapter: true
+pre: " <b> 5. </b> "
 ---
 
 # WORKSHOP AWS REAL-TIME GAME SERVER
@@ -17,7 +17,13 @@ Workshop sử dụng hệ sinh thái **Amazon Web Services (AWS)** kết hợp v
 ![Sơ đồ kiến trúc AWS Game Server tổng thể](/images/architecture-diagram.png?featherlight=false&width=90pc)
 
 {{% notice info %}}
-**Lưu ý về bảo mật:** Hạ tầng được thiết kế theo mô hình **3-Tier Architecture** nhằm phân tách Public Access Layer, Application Layer và Data Layer. Các tài nguyên cần truy cập từ Internet được đặt trong Public Subnets, trong khi Application và Database Resources được cô lập trong Private Subnets.
+
+**Lưu ý về bảo mật:**
+
+Hạ tầng được thiết kế theo mô hình **3-Tier Architecture** nhằm phân tách Public Access Layer, Application Layer và Data Layer.
+
+Các tài nguyên cần truy cập từ Internet được đặt trong Public Subnets, trong khi Application và Database Resources được cô lập trong Private Subnets.
+
 {{% /notice %}}
 
 #### Các dịch vụ AWS chính
@@ -58,21 +64,21 @@ Sau khi hoàn thành Workshop, bạn sẽ học được cách:
 
 #### Điều hướng triển khai Workshop
 
-1. [5.1. IAM & Regional Configuration](5.1-iam-regional/)
+1. [5.1. IAM & Region Setup](5.1-IAM%20%26%20Region%20Setup/)
 
-2. [5.2. Networking](5.2-networking/)
+2. [5.2. Networking](5.2-Networking/)
 
-3. [5.3. Container](5.3-container/)
+3. [5.3. Container Registry](5.3-Container-Registry/)
 
-4. [5.4. Database](5.4-database/)
+4. [5.4. Database](5.4-Database/)
 
-5. [5.5. Game Server](5.5-game-server/)
+5. [5.5. Game Server](5.5-Game-Server/)
 
-6. [5.6. Load Balancing](5.6-load-balancing/)
+6. [5.6. Load Balancing](5.6-Load-Balancing/)
 
-7. [5.7. Scaling](5.7-scaling/)
+7. [5.7. Scaling](5.7-Scaling/)
 
-8. [5.8. Monitoring](5.8-monitoring/)
+8. [5.8. Monitoring](5.8-Monitoring/)
 
 9. [5.9. CI/CD](5.9-ci-cd/)
 

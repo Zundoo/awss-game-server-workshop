@@ -1,9 +1,9 @@
 ---
-title : "Workshop Overview"
-date : "`r Sys.Date()`"
-weight : 1
-chapter : true
-pre : " <b> 5. </b> "
+title: "Workshop Overview"
+date: "`r Sys.Date()`"
+weight: 1
+chapter: true
+pre: " <b> 5. </b> "
 ---
 
 # AWS REAL-TIME GAME SERVER WORKSHOP
@@ -17,7 +17,13 @@ The workshop uses the **Amazon Web Services (AWS)** ecosystem together with cont
 ![Overall AWS Game Server Architecture Diagram](/images/architecture-diagram.png?featherlight=false&width=90pc)
 
 {{% notice info %}}
-**Security Notice:** The infrastructure follows a **3-Tier Architecture** to separate the public access layer, application layer, and data layer. Public-facing resources are placed in Public Subnets, while application and database resources are isolated within Private Subnets.
+
+**Security Notice:**
+
+The infrastructure follows a **3-Tier Architecture** to separate the public access layer, application layer, and data layer.
+
+Public-facing resources are placed in Public Subnets, while application and database resources are isolated within Private Subnets.
+
 {{% /notice %}}
 
 #### Core AWS Services
@@ -58,21 +64,21 @@ By completing this workshop, you will learn how to:
 
 #### Workshop Implementation Navigation
 
-1. [5.1. IAM & Regional Configuration](5.1-iam-regional/)
+1. [5.1. IAM & Regional Configuration](5.1-IAM%20%26%20Region%20Setup/)
 
-2. [5.2. Networking](5.2-networking/)
+2. [5.2. Networking](5.2-Networking/)
 
-3. [5.3. Container](5.3-container/)
+3. [5.3. Container](5.3-Container-Registry/)
 
-4. [5.4. Database](5.4-database/)
+4. [5.4. Database](5.4-Database/)
 
-5. [5.5. Game Server](5.5-game-server/)
+5. [5.5. Game Server](5.5-Game%20Server/)
 
-6. [5.6. Load Balancing](5.6-load-balancing/)
+6. [5.6. Load Balancing](5.6-Load-Balancing/)
 
-7. [5.7. Scaling](5.7-scaling/)
+7. [5.7. Scaling](5.7-Scaling/)
 
-8. [5.8. Monitoring](5.8-monitoring/)
+8. [5.8. Monitoring](5.8-Monitoring/)
 
 9. [5.9. CI/CD](5.9-ci-cd/)
 
