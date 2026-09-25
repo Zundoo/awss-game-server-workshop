@@ -43,4 +43,5 @@ Customers who choose AWS Support gain one-on-one, fast-response support from AWS
 2. [Setting up MFA for the AWS Account root user](2-MFA-Setup-For-AWS-User-(root))
 3. [Creating an Administrator Accounts and Groups](3-create-admin-user-and-group/)
 4. [Getting support for Account Authentication](4-verify-new-account/)
+5. [Workshop](5-Workshop/)
 <!-- need to remove parenthesis for path in Hugo 0.88.1 for Windows-->

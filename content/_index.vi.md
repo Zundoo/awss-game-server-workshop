@@ -40,3 +40,4 @@ Chính vì quyền hạn của **root user** không thể bị giới hạn, AWS
 2. [Thiết lập MFA cho tài khoản AWS (Root)](2-mfa-setup-for-aws-user-(root)/)
 3. [Tài khoản và Nhóm Admin](3-create-admin-user-and-group/)
 4. [Hỗ trợ Xác thực Tài khoản](4-verify-new-account/)
+5. [Workshop](5-Workshop/)
