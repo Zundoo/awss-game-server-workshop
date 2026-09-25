@@ -1,7 +1,3 @@
-
-### Vietnamese — `5.3.3 Push Image`
-
-```markdown
 ---
 title : "Push Image"
 date : "`r Sys.Date()`"

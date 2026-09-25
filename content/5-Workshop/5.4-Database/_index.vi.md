@@ -1,7 +1,3 @@
-
-### Vietnamese — `5.4 Database`
-
-```markdown
 ---
 title : "Database"
 date : "`r Sys.Date()`"

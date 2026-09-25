@@ -1,7 +1,3 @@
-
-### Vietnamese — `5.5 Game Server`
-
-```markdown
 ---
 title : "Game Server"
 date : "`r Sys.Date()`"

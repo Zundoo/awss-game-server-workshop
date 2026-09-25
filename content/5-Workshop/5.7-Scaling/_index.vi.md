@@ -1,7 +1,3 @@
-
-### Vietnamese — `5.7 Scaling`
-
-```markdown
 ---
 title : "Scaling"
 date : "`r Sys.Date()`"

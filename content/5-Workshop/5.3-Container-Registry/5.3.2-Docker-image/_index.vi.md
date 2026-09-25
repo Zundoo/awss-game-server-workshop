@@ -1,7 +1,3 @@
-
-### Vietnamese — `5.3.2 Docker Image`
-
-```markdown
 ---
 title : "Docker Image"
 date : "`r Sys.Date()`"

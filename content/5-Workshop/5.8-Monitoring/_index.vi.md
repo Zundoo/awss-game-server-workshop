@@ -1,7 +1,3 @@
-
-### Vietnamese — `5.8 Monitoring`
-
-```markdown
 ---
 title : "Monitoring"
 date : "`r Sys.Date()`"

@@ -1,7 +1,3 @@
-
-### Vietnamese — `5.6.3 Health Check`
-
-```markdown
 ---
 title : "Health Check"
 date : "`r Sys.Date()`"

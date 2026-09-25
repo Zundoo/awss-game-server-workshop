@@ -1,7 +1,3 @@
-
-### Vietnamese — `5.8.2 CloudWatch Metrics`
-
-```markdown
 ---
 title : "CloudWatch Metrics"
 date : "`r Sys.Date()`"

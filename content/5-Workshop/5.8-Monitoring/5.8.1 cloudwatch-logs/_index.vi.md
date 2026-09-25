@@ -1,7 +1,3 @@
-
-### Vietnamese — `5.8.1 CloudWatch Logs`
-
-```markdown
 ---
 title : "CloudWatch Logs"
 date : "`r Sys.Date()`"

@@ -1,7 +1,3 @@
-
-### Vietnamese — `5.6 Load Balancing`
-
-```markdown
 ---
 title : "Load Balancing"
 date : "`r Sys.Date()`"

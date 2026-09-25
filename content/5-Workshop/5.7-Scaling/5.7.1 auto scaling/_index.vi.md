@@ -1,7 +1,3 @@
-
-### Vietnamese — `5.7.1 Auto Scaling`
-
-```markdown
 ---
 title : "Auto Scaling"
 date : "`r Sys.Date()`"

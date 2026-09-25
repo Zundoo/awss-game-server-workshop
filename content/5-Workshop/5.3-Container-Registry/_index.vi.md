@@ -1,7 +1,3 @@
-
-### Vietnamese — `5.3 Container`
-
-```markdown
 ---
 title : "Container"
 date : "`r Sys.Date()`"
