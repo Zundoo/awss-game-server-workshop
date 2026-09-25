@@ -1,9 +1,3 @@
-
----
-
-## Tiếng Việt — `5.10.2 WebSocket Test`
-
-```markdown
 ---
 title : "Kiểm thử WebSocket"
 date : "`r Sys.Date()`"
