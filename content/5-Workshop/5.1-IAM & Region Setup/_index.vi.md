@@ -1,14 +1,29 @@
 ---
-title: "4.1.1. VPC"
-weight: 411
+title : "5.1.1. VPC"
+date : "`r Sys.Date()`"
+weight : 1
+chapter : false
+pre : " <b> 5.1.1 </b> "
 ---
 
-# 4.1.1. Khởi tạo Virtual Private Cloud (VPC)
+## Provisioning Virtual Private Cloud (VPC)
 
-*   **Mục tiêu**: Xây dựng một mạng diện rộng ảo cô lập hoàn toàn trên hạ tầng AWS để triển khai các tài nguyên của Game Server.
-*   **Thao tác thực hiện**:
-    1. Truy cập giao diện **VPC Console** > chọn **Your VPCs** > nhấn **Create VPC**.
-    2. Cấu hình thông số:
-        * **Name tag**: `game-server-vpc`
-        * **IPv4 CIDR block**: `10.0.0.0/16` (Cung cấp tối đa 65.536 địa chỉ IP nội bộ).
-    3. Nhấn **Create VPC**.
+**Objective:** Create an isolated virtual network environment on AWS infrastructure to host all game server resources.
+
+## Step-by-Step Implementation
+
+1. Navigate to the **VPC Console** > select **Your VPCs** > click **Create VPC**.
+
+   ![VPC Console](/images/4/4.1.1/0001.png?featherlight=false&width=90pc)
+
+2. Configure the following parameters:
+
+   - **Name tag**: `game-server-vpc`
+
+   - **IPv4 CIDR block**: `10.0.0.0/16`
+
+   ![Create VPC Configuration](/images/4/4.1.1/0002.png?featherlight=false&width=90pc)
+
+3. Click **Create VPC**.
+
+   ![VPC Created](/images/4/4.1.1/0003.png?featherlight=false&width=90pc)
