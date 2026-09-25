@@ -1,5 +1,5 @@
 ---
-title : "5.1.1. VPC"
+title : "VPC"
 date : "`r Sys.Date()`"
 weight : 1
 chapter : false

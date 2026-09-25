@@ -17,26 +17,24 @@ The workshop uses the **Amazon Web Services (AWS)** ecosystem together with cont
 ![Overall AWS Game Server Architecture Diagram](/images/architecture-diagram.png?featherlight=false&width=90pc)
 
 {{% notice info %}}
-
 **Security Notice:** The infrastructure follows a **3-Tier Architecture** to separate the public access layer, application layer, and data layer. Public-facing resources are placed in Public Subnets, while application and database resources are isolated within Private Subnets.
-
 {{% /notice %}}
 
 #### Core AWS Services
 
-* **Amazon VPC**: Building an isolated virtual network, configuring subnets, route tables, and network security.
+- **Amazon VPC**: Building an isolated virtual network, configuring subnets, route tables, and network security.
 
-* **AWS IAM**: Managing users, roles, permissions, and authentication mechanisms to secure AWS resources.
+- **AWS IAM**: Managing users, roles, permissions, and authentication mechanisms to secure AWS resources.
 
-* **Amazon ECR & Docker**: Building, containerizing, and storing the Game Server application images.
+- **Amazon ECR & Docker**: Building, containerizing, and storing the Game Server application images.
 
-* **Amazon ECS**: Orchestrating containerized Game Server applications using AWS Fargate.
+- **Amazon ECS**: Orchestrating containerized Game Server applications using AWS Fargate.
 
-* **Application Load Balancer (ALB)**: Providing a public entry point and distributing incoming WebSocket connections across Game Server containers.
+- **Application Load Balancer (ALB)**: Providing a public entry point and distributing incoming WebSocket connections across Game Server containers.
 
-* **Amazon ElastiCache for Redis**: Providing a low-latency in-memory data layer for sharing game session and real-time state information.
+- **Amazon ElastiCache for Redis**: Providing a low-latency in-memory data layer for sharing game session and real-time state information.
 
-* **Amazon CloudWatch**: Collecting application and infrastructure metrics and managing centralized container logs.
+- **Amazon CloudWatch**: Collecting application and infrastructure metrics and managing centralized container logs.
 
 #### Workshop Objectives
 
@@ -63,3 +61,19 @@ By completing this workshop, you will learn how to:
 1. [5.1. IAM & Regional Configuration](5.1-iam-regional/)
 
 2. [5.2. Networking](5.2-networking/)
+
+3. [5.3. Container](5.3-container/)
+
+4. [5.4. Database](5.4-database/)
+
+5. [5.5. Game Server](5.5-game-server/)
+
+6. [5.6. Load Balancing](5.6-load-balancing/)
+
+7. [5.7. Scaling](5.7-scaling/)
+
+8. [5.8. Monitoring](5.8-monitoring/)
+
+9. [5.9. CI/CD](5.9-ci-cd/)
+
+10. [5.10. Load Testing](5.10-load-testing/)

@@ -6,60 +6,74 @@ chapter : true
 pre : " <b> 5. </b> "
 ---
 
-# AWS REAL-TIME GAME SERVER WORKSHOP
+# WORKSHOP AWS REAL-TIME GAME SERVER
 
-#### Tổng quan Workshop
+#### Tổng quan Lab
 
-Workshop này tập trung vào quá trình thiết kế, triển khai và kiểm thử hạ tầng Cloud dành cho **Game Server thời gian thực (Real-time Game Server)** hoạt động trên các kết nối **WebSocket** liên tục.
+Workshop này tập trung vào quá trình thiết kế kiến trúc, triển khai và kiểm thử hạ tầng Cloud dành cho **Real-time Game Server** hoạt động thông qua các kết nối **WebSocket** liên tục.
 
-Workshop sử dụng hệ sinh thái **Amazon Web Services (AWS)** kết hợp với các công nghệ về mạng, bảo mật, container, cơ sở dữ liệu, cân bằng tải, giám sát và tự động mở rộng để xây dựng một hạ tầng Game Server có khả năng hoạt động ổn định và mở rộng khi số lượng người chơi tăng cao.
+Workshop sử dụng hệ sinh thái **Amazon Web Services (AWS)** kết hợp với các công nghệ về Containerization, Networking, Security, Database, Load Balancing, Monitoring và Auto Scaling để xây dựng một hạ tầng Game Server có khả năng hoạt động ổn định và mở rộng.
 
 ![Sơ đồ kiến trúc AWS Game Server tổng thể](/images/architecture-diagram.png?featherlight=false&width=90pc)
 
 {{% notice info %}}
-
-**Lưu ý về bảo mật:** Hạ tầng được thiết kế theo mô hình **3-Tier Architecture**, nhằm phân tách lớp truy cập bên ngoài, lớp ứng dụng và lớp dữ liệu. Các tài nguyên cung cấp dịch vụ ra Internet được đặt trong Public Subnets, trong khi các tài nguyên ứng dụng và cơ sở dữ liệu được cô lập trong Private Subnets.
-
+**Lưu ý về bảo mật:** Hạ tầng được thiết kế theo mô hình **3-Tier Architecture** nhằm phân tách Public Access Layer, Application Layer và Data Layer. Các tài nguyên cần truy cập từ Internet được đặt trong Public Subnets, trong khi Application và Database Resources được cô lập trong Private Subnets.
 {{% /notice %}}
 
 #### Các dịch vụ AWS chính
 
-* **Amazon VPC**: Xây dựng mạng ảo cô lập, cấu hình Subnet, Route Table và các cơ chế bảo mật mạng.
+- **Amazon VPC**: Xây dựng mạng Virtual Network độc lập, cấu hình Subnet, Route Table và Network Security.
 
-* **AWS IAM**: Quản lý người dùng, Role, quyền truy cập và cơ chế xác thực nhằm bảo vệ các tài nguyên AWS.
+- **AWS IAM**: Quản lý User, Role, Permission và các cơ chế Authentication để bảo vệ tài nguyên AWS.
 
-* **Amazon ECR & Docker**: Xây dựng, đóng gói và lưu trữ Docker Image của ứng dụng Game Server.
+- **Amazon ECR & Docker**: Build, Containerize và lưu trữ các Image của Game Server Application.
 
-* **Amazon ECS**: Điều phối các container Game Server bằng AWS Fargate.
+- **Amazon ECS**: Điều phối các Container Game Server Application sử dụng AWS Fargate.
 
-* **Application Load Balancer (ALB)**: Cung cấp điểm truy cập công khai và phân phối các kết nối WebSocket đến các container Game Server.
+- **Application Load Balancer (ALB)**: Cung cấp Public Entry Point và phân phối các WebSocket Connection đến các Game Server Container.
 
-* **Amazon ElastiCache for Redis**: Cung cấp lớp dữ liệu trong bộ nhớ với độ trễ thấp để chia sẻ thông tin phiên chơi và trạng thái thời gian thực giữa các Game Server.
+- **Amazon ElastiCache for Redis**: Cung cấp Data Layer trong bộ nhớ với độ trễ thấp để chia sẻ Game Session và Real-time State Information.
 
-* **Amazon CloudWatch**: Thu thập các chỉ số hiệu năng của hệ thống và quản lý log tập trung của các container.
+- **Amazon CloudWatch**: Thu thập các Application Metrics và Infrastructure Metrics, đồng thời quản lý Container Logs tập trung.
 
-#### Mục tiêu của Workshop
+#### Mục tiêu Workshop
 
-Sau khi hoàn thành Workshop, bạn sẽ có thể:
+Sau khi hoàn thành Workshop, bạn sẽ học được cách:
 
-1. Thiết kế kiến trúc mạng AWS an toàn và có khả năng mở rộng.
+1. Thiết kế AWS Network Architecture có tính bảo mật và khả năng mở rộng.
 
-2. Cấu hình IAM và các cơ chế xác thực cho tài nguyên AWS.
+2. Cấu hình IAM và các cơ chế Authentication cho AWS Resources.
 
-3. Triển khai Game Server sử dụng WebSocket dưới dạng container thông qua Amazon ECS và AWS Fargate.
+3. Triển khai Containerized WebSocket Game Server sử dụng Amazon ECS và AWS Fargate.
 
-4. Cấu hình Redis làm lớp dữ liệu trong bộ nhớ cho ứng dụng thời gian thực.
+4. Cấu hình Redis làm In-memory Data Layer cho các ứng dụng Real-time.
 
-5. Đưa Game Server ra Internet thông qua Application Load Balancer.
+5. Expose Game Server thông qua Application Load Balancer.
 
-6. Cấu hình cơ chế Auto Scaling dựa trên mức sử dụng tài nguyên của ứng dụng.
+6. Cấu hình Auto Scaling dựa trên mức sử dụng tài nguyên của Application.
 
-7. Giám sát hiệu năng và log của các container bằng Amazon CloudWatch.
+7. Giám sát hiệu năng Application và Container Logs bằng Amazon CloudWatch.
 
-8. Thực hiện Load Testing để đánh giá khả năng xử lý của Game Server trong điều kiện có nhiều người dùng đồng thời.
+8. Thực hiện Load Testing để đánh giá Game Server trong điều kiện có số lượng Connection đồng thời cao.
 
-#### Điều hướng nội dung Workshop
+#### Điều hướng triển khai Workshop
 
-1. [5.1. IAM & Cấu hình khu vực](5.1-iam-regional/)
+1. [5.1. IAM & Regional Configuration](5.1-iam-regional/)
 
 2. [5.2. Networking](5.2-networking/)
+
+3. [5.3. Container](5.3-container/)
+
+4. [5.4. Database](5.4-database/)
+
+5. [5.5. Game Server](5.5-game-server/)
+
+6. [5.6. Load Balancing](5.6-load-balancing/)
+
+7. [5.7. Scaling](5.7-scaling/)
+
+8. [5.8. Monitoring](5.8-monitoring/)
+
+9. [5.9. CI/CD](5.9-ci-cd/)
+
+10. [5.10. Load Testing](5.10-load-testing/)

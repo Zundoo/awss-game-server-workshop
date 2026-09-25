@@ -1,5 +1,5 @@
 ---
-title : "5.2. Networking"
+title : "Networking"
 date : "`r Sys.Date()`"
 weight : 1
 chapter : false
