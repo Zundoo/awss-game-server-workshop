@@ -1,12 +1,12 @@
 ---
-title : "5.1.3. VPC"
+title : "5.2.3. VPC"
 date : "`r Sys.Date()`"
 weight : 1
 chapter : false
-pre : " <b> 5.1.3 </b> "
+pre : " <b> 5.2.3 </b> "
 ---
 
-# 5.1.3. Configuring Internet Gateway (IGW)
+# 5.2.3. Configuring Internet Gateway (IGW)
 
 *   **Objective**: Enable resources located within the Public Subnets (such as the ALB) to communicate bidirectionally with the public Internet.
 *   **Step-by-Step Implementation**:

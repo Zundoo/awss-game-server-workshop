@@ -1,11 +1,11 @@
 ---
-title : "5.1.4 VPC"
+title : "5.2.4 VPC"
 date : "`r Sys.Date()`"
 weight : 1
 chapter : false
-pre : " <b> 5.1.4 </b> "
+pre : " <b> 5.2.4 </b> "
 ---
-# 5.1.4. Establishing Route Tables
+# 5.2.4. Establishing Route Tables
 
 The system configures two distinct route tables to strict control network traffic mapping:
 

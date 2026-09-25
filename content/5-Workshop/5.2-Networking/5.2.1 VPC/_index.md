@@ -1,9 +1,9 @@
 ---
-title : "5.1.1. VPC"
+title : "5.2.1. VPC"
 date : "`r Sys.Date()`"
 weight : 1
 chapter : false
-pre : " <b> 5.1.1 </b> "
+pre : " <b> 5.2.1 </b> "
 ---
 
 ## Provisioning Virtual Private Cloud (VPC)

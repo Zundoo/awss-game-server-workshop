@@ -3,7 +3,7 @@ title : "5.1.4. VPC"
 date : "`r Sys.Date()`"
 weight : 1
 chapter : false
-pre : " <b> 5.1.4 </b> "
+pre : " <b> 5.2.4 </b> "
 ---
 
 # 5.1.4. Thiết lập Bảng định tuyến (Route Tables)

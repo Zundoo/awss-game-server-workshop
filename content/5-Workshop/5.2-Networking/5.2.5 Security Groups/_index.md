@@ -1,11 +1,11 @@
 ---
-title : "5.1.5. VPC"
+title : "5.2.5. VPC"
 date : "`r Sys.Date()`"
 weight : 1
 chapter : false
-pre : " <b> 5.1.5 </b> "
+pre : " <b> 5.2.5 </b> "
 ---
-# 5.1.5. Firewall Rule Management (Security Groups)
+# 5.2.5. Firewall Rule Management (Security Groups)
 
 Enforce the Principle of Least Privilege to build robust firewall perimeters:
 

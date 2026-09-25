@@ -1,11 +1,11 @@
 ---
-title : "5.1.5. VPC"
+title : "5.2.5. VPC"
 date : "`r Sys.Date()`"
 weight : 1
 chapter : false
-pre : " <b> 5.1.5 </b> "
+pre : " <b> 5.2.5 </b> "
 ---
-# 5.1.5. Cấu hình Luật tường lửa (Security Groups)
+# 5.2.5. Cấu hình Luật tường lửa (Security Groups)
 
 Áp dụng nguyên tắc đặc quyền tối thiểu (Least Privilege) để thiết lập lá chắn bảo mật:
 
