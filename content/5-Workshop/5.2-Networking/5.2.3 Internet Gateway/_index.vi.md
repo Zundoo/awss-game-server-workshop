@@ -8,20 +8,33 @@ pre : " <b> 5.2.3 </b> "
 
 ## Cấu hình Internet Gateway (IGW)
 
-**Mục tiêu:** Cho phép các tài nguyên nằm trong Public Subnets, chẳng hạn như Application Load Balancer (ALB), giao tiếp với Internet thông qua Internet Gateway.
+**Mục tiêu:** Cho phép các tài nguyên nằm trong Public Subnets (chẳng hạn như Application Load Balancer và NAT Gateway) giao tiếp với Internet công cộng.
 
-## Thao tác thực hiện
+## Các bước thực hiện
 
-1. Tại menu VPC bên trái, chọn **Internet gateways** > nhấn **Create internet gateway**.
+1. Từ menu **VPC** ở phía bên trái, chọn **Internet gateways** > nhấn **Create internet gateway**.
 
-2. Nhập thông số sau:
+2. Nhập thông tin sau:
 
    - **Name tag**: `game-server-igw`
 
-   Nhấn **Create**.
+   Nhấn **Create internet gateway**.
 
-3. Chọn Internet Gateway vừa tạo > nhấn **Actions** > chọn **Attach to VPC**.
+   ![Create Internet Gateway](/images/5/5.2/igw-create.png?featherlight=false&width=90pc)
 
-4. Chọn `game-server-vpc` trong danh sách VPC và nhấn **Attach internet gateway**.
+3. Chọn Internet Gateway vừa tạo (`game-server-igw`) > nhấn **Actions** > chọn **Attach to VPC**.
 
-Internet Gateway hiện đã được gắn vào `game-server-vpc` và có thể được sử dụng bởi các tài nguyên trong Public Subnets để giao tiếp với Internet thông qua Route Table tương ứng.
+   ![Attach Internet Gateway to VPC](/images/5/5.2/igw-attach.png?featherlight=false&width=90pc)
+
+4. Chọn `game-server-vpc` từ danh sách VPC và nhấn **Attach internet gateway**.
+
+   ![Select VPC to Attach](/images/5/5.2/igw-select-vpc.png?featherlight=false&width=90pc)
+
+5. Kiểm tra trạng thái:
+
+   - Internet Gateway phải hiển thị **State: Attached**
+   - Internet Gateway được liên kết với `game-server-vpc`
+
+   ![Internet Gateway Attached Successfully](/images/5/5.2/igw-attached.png?featherlight=false&width=90pc)
+
+Internet Gateway hiện đã được gắn với `game-server-vpc` và có thể được sử dụng bởi các tài nguyên trong Public Subnets để giao tiếp với Internet thông qua Public Route Table (`0.0.0.0/0` → Internet Gateway).

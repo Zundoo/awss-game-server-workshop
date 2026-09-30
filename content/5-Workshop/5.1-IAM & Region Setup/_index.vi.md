@@ -1,29 +1,23 @@
 ---
-title : "VPC"
-date : "`r Sys.Date()`"
-weight : 1
-chapter : false
-pre : " <b> 5.1.1 </b> "
+title: "IAM & Cấu hình Region"
+date: "`r Sys.Date()`"
+weight: 1
+chapter: false
+pre: " <b> 5.1 </b> "
 ---
 
-## Provisioning Virtual Private Cloud (VPC)
+# IAM & CẤU HÌNH REGION
 
-**Objective:** Create an isolated virtual network environment on AWS infrastructure to host all game server resources.
+Phần này chuẩn bị môi trường AWS trước khi triển khai hạ tầng Real-time Game Server.
 
-## Step-by-Step Implementation
+Các mục tiêu chính bao gồm lựa chọn AWS Region, cấu hình môi trường AWS và chuẩn bị các quyền IAM cần thiết cho những dịch vụ được sử dụng trong Workshop.
 
-1. Navigate to the **VPC Console** > select **Your VPCs** > click **Create VPC**.
+## 5.1.1. Lựa chọn AWS Region
 
-   ![VPC Console](/images/4/4.1.1/0001.png?featherlight=false&width=90pc)
+Toàn bộ tài nguyên trong Workshop được triển khai trong cùng một AWS Region.
 
-2. Configure the following parameters:
+Trong Workshop này, sử dụng:
 
-   - **Name tag**: `game-server-vpc`
-
-   - **IPv4 CIDR block**: `10.0.0.0/16`
-
-   ![Create VPC Configuration](/images/4/4.1.1/0002.png?featherlight=false&width=90pc)
-
-3. Click **Create VPC**.
-
-   ![VPC Created](/images/4/4.1.1/0003.png?featherlight=false&width=90pc)
+```text
+Region: Asia Pacific (Singapore)
+Region Code: ap-southeast-1

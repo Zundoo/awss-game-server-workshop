@@ -8,7 +8,7 @@ pre : " <b> 5.2.3 </b> "
 
 ## Configuring Internet Gateway (IGW)
 
-**Objective:** Enable resources located within the Public Subnets, such as the Application Load Balancer (ALB), to communicate with the public Internet.
+**Objective:** Enable resources located within the Public Subnets (such as the Application Load Balancer and NAT Gateway) to communicate with the public Internet.
 
 ## Step-by-Step Implementation
 
@@ -18,10 +18,23 @@ pre : " <b> 5.2.3 </b> "
 
    - **Name tag**: `game-server-igw`
 
-   Click **Create**.
+   Click **Create internet gateway**.
 
-3. Select the newly created Internet Gateway > click **Actions** > select **Attach to VPC**.
+   ![Create Internet Gateway](/images/5/5.2/igw-create.png?featherlight=false&width=90pc)
+
+3. Select the newly created Internet Gateway (`game-server-igw`) > click **Actions** > select **Attach to VPC**.
+
+   ![Attach Internet Gateway to VPC](/images/5/5.2/igw-attach.png?featherlight=false&width=90pc)
 
 4. Select `game-server-vpc` from the VPC list and click **Attach internet gateway**.
 
-The Internet Gateway is now attached to the `game-server-vpc` and can be used by resources in the Public Subnets to communicate with the Internet through the appropriate Route Table.
+   ![Select VPC to Attach](/images/5/5.2/igw-select-vpc.png?featherlight=false&width=90pc)
+
+5. Verify the status:
+
+   - The Internet Gateway should now show **State: Attached**
+   - It is associated with `game-server-vpc`
+
+   ![Internet Gateway Attached Successfully](/images/5/5.2/igw-attached.png?featherlight=false&width=90pc)
+
+The Internet Gateway is now attached to the `game-server-vpc` and can be used by resources in the Public Subnets to communicate with the Internet through the Public Route Table (`0.0.0.0/0` → Internet Gateway).

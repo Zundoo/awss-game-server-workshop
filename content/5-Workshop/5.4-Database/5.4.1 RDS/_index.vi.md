@@ -6,29 +6,46 @@ chapter : false
 pre : " <b> 5.4.1 </b> "
 ---
 
-## Khởi tạo Amazon RDS Instance
+## Triển khai Amazon RDS Instance
 
-**Mục tiêu:** Triển khai hệ quản trị cơ sở dữ liệu quan hệ để lưu trữ an toàn thông tin người chơi, lịch sử trận đấu và dữ liệu vật phẩm cần được duy trì lâu dài.
+**Mục tiêu:** Triển khai hệ thống cơ sở dữ liệu quan hệ để lưu trữ an toàn thông tin người chơi, lịch sử trận đấu và dữ liệu game cần được lưu trữ lâu dài.
 
-## Cấu hình kiến trúc
+## Các bước thực hiện
 
-1. Truy cập **Amazon RDS** > chọn **Databases** > nhấn **Create database**.
+1. Truy cập **Amazon RDS** → **Databases** → **Create database**.
 
-2. Chọn **Standard create** và cấu hình Database Engine:
+2. Chọn **Standard create** và cấu hình database engine:
+
    - **Engine type**: `MySQL`
-   - Có thể chọn PostgreSQL nếu phù hợp với technology stack của ứng dụng.
+   - **Engine Version**: MySQL 8.0 (phiên bản mới nhất hiện có)
 
-3. Trong mục **Templates**, chọn **Free tier** để giảm chi phí trong phạm vi Workshop.
+3. Trong mục **Templates**, chọn **Free tier** (hoặc Dev/Test) để giảm thiểu chi phí.
 
-4. Cấu hình kết nối Database:
-   - **VPC**: Chọn `game-server-vpc`.
-   - Cấu hình DB Subnet Group sử dụng các **Private Subnets**.
-   - Không đặt Database trực tiếp trong Public Subnet.
+4. Cấu hình các thông tin database:
 
-   ![Cấu hình kết nối RDS](/images/5/5.4/5.4.1/0001.png?featherlight=false&width=90pc)
+   - **DB instance identifier**: `game-db`
+   - **Master username**: `admin`
+   - **Master password**: Đặt mật khẩu mạnh (lưu trữ mật khẩu ở nơi an toàn)
 
-5. Cấu hình các thông số của Database Instance theo yêu cầu của Workshop và kiểm tra lại toàn bộ cấu hình.
+5. Cấu hình **Connectivity**:
 
-6. Nhấn **Create database**.
+   - Chọn **Don’t connect to an EC2 compute resource**
+   - **VPC**: `game-server-vpc`
+   - **DB subnet group**: `game-db-subnet-group` (sử dụng Private Subnets)
+   - **Public access**: **No**
+   - **VPC security group**: Chọn security group có sẵn → `sg-rds`
 
-Sau khi được khởi tạo, RDS Instance sẽ hoạt động bên trong VPC và không cho phép truy cập trực tiếp từ Internet. Game Server có thể kết nối đến Database thông qua mạng Private bằng các quy tắc Security Group phù hợp.
+   ![RDS Connectivity Configuration](/images/5/5.4/rds-connectivity.png?featherlight=false&width=90pc)
+
+6. Cấu hình các thiết lập bổ sung (tùy chọn):
+
+   - Initial database name: `gamedb`
+   - Tắt automated backups nếu muốn giảm chi phí trong quá trình thực hiện workshop.
+
+7. Nhấn **Create database**.
+
+   ![Create RDS Database](/images/5/5.4/rds-create.png?featherlight=false&width=90pc)
+
+8. Chờ cho đến khi trạng thái chuyển sang **Available** (thường mất khoảng 5–10 phút).
+
+9. Sao chép **Endpoint** để sử dụng ở các bước sau (ví dụ):

@@ -8,33 +8,35 @@ pre : " <b> 5.4.2 </b> "
 
 ## Configuring ElastiCache Redis
 
-**Objective:** Deploy an **Amazon ElastiCache for Redis** cluster to handle Session data and support real-time game room state synchronization across multiple Game Servers.
+**Objective:** Deploy an **Amazon ElastiCache for Redis** cluster to handle session data and support real-time game room state synchronization across multiple Game Servers.
 
 Redis is deployed within the **Private Subnets** of `game-server-vpc` and only authorized Game Server resources are allowed to establish connections to Redis.
 
-## ElastiCache Redis Configuration
+## Step-by-Step Implementation
 
-1. Navigate to **Amazon ElastiCache** in the AWS Management Console.
+1. Navigate to **Amazon ElastiCache** → **Redis OSS caches** → **Create Redis OSS cache**.
 
-2. Select **Redis caches** > click **Create Redis cache**.
+2. Configure the following parameters:
 
-3. Configure the Redis parameters according to the Workshop requirements.
+   - **Deployment option**: Design your own cache
+   - **Creation method**: Cluster cache
+   - **Cluster mode**: Disabled
+   - **Name**: `game-redis`
+   - **Engine version**: 7.x (or latest available)
+   - **Node type**: `cache.t3.micro` (or `cache.t4g.micro`)
+   - **Number of replicas**: 0
 
-4. Ensure that Redis is deployed within the Private network and uses a Security Group that allows connections from the Game Server.
+3. Configure networking:
 
-   - **Redis Port**: `6379`
+   - **Subnet group**: `game-redis-subnet-group` (Private Subnets)
    - **VPC**: `game-server-vpc`
-   - **Subnet**: Private Subnets
+   - **Security groups**: Select `sg-redis`
+   - **Encryption in transit**: Disabled (for easier testing in the workshop)
 
-   ![ElastiCache Redis Configuration](/images/5/5.4/5.4.2/0001.png?featherlight=false&width=90pc)
+   ![ElastiCache Redis Configuration](/images/5/5.4/redis-create.png?featherlight=false&width=90pc)
 
----
+4. Click **Create**.
 
-## 🛠️ Troubleshooting Log: Resolving Redis Connection Issues Caused by TLS
+5. Wait until the status becomes **Available** (usually 5–8 minutes).
 
-### Issue
-
-When testing the Redis connection from an EC2 instance using the standard Redis CLI command:
-
-```bash
-redis6-cli -h <REDIS_ENDPOINT> -p 6379
+6. Copy the **Primary endpoint**:

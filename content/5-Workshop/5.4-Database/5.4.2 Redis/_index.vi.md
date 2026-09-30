@@ -6,35 +6,37 @@ chapter : false
 pre : " <b> 5.4.2 </b> "
 ---
 
-## Cấu hình Cụm bộ nhớ đệm ElastiCache Redis
-
-**Mục tiêu:** Triển khai cụm **Amazon ElastiCache for Redis** để xử lý dữ liệu Session và hỗ trợ đồng bộ trạng thái phòng Game theo thời gian thực giữa nhiều Game Server.
-
-Redis được triển khai trong **Private Subnets** của `game-server-vpc` và chỉ cho phép các Game Server được cấp quyền kết nối đến Redis.
-
 ## Cấu hình ElastiCache Redis
 
-1. Truy cập **Amazon ElastiCache** trên AWS Management Console.
+**Mục tiêu:** Triển khai một cluster **Amazon ElastiCache for Redis** để xử lý dữ liệu session và hỗ trợ đồng bộ trạng thái phòng game theo thời gian thực giữa nhiều Game Server.
 
-2. Chọn **Redis caches** > nhấn **Create Redis cache**.
+Redis được triển khai trong **Private Subnets** của `game-server-vpc` và chỉ các tài nguyên Game Server được cấp quyền mới có thể thiết lập kết nối đến Redis.
 
-3. Cấu hình các thông số của Redis theo yêu cầu của Workshop.
+## Các bước thực hiện
 
-4. Đảm bảo Redis được triển khai trong mạng Private và sử dụng Security Group cho phép Game Server kết nối đến Redis.
+1. Truy cập **Amazon ElastiCache** → **Redis OSS caches** → **Create Redis OSS cache**.
 
-   - **Redis Port**: `6379`
+2. Cấu hình các thông số sau:
+
+   - **Deployment option**: Design your own cache
+   - **Creation method**: Cluster cache
+   - **Cluster mode**: Disabled
+   - **Name**: `game-redis`
+   - **Engine version**: 7.x (hoặc phiên bản mới nhất hiện có)
+   - **Node type**: `cache.t3.micro` (hoặc `cache.t4g.micro`)
+   - **Number of replicas**: 0
+
+3. Cấu hình networking:
+
+   - **Subnet group**: `game-redis-subnet-group` (Private Subnets)
    - **VPC**: `game-server-vpc`
-   - **Subnet**: Private Subnets
+   - **Security groups**: Chọn `sg-redis`
+   - **Encryption in transit**: Disabled (để thuận tiện cho việc kiểm thử trong workshop)
 
-   ![ElastiCache Redis Configuration](/images/5/5.4/5.4.2/0001.png?featherlight=false&width=90pc)
+   ![ElastiCache Redis Configuration](/images/5/5.4/redis-create.png?featherlight=false&width=90pc)
 
----
+4. Nhấn **Create**.
 
-## 🛠️ Nhật ký Sửa lỗi: Khắc phục sự cố kết nối Redis do TLS
+5. Chờ cho đến khi trạng thái chuyển sang **Available** (thường mất khoảng 5–8 phút).
 
-### Hiện tượng lỗi
-
-Khi thực hiện kiểm tra kết nối Redis từ máy chủ EC2 bằng lệnh CLI thông thường:
-
-```bash
-redis6-cli -h <REDIS_ENDPOINT> -p 6379
+6. Sao chép **Primary endpoint**:
