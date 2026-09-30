@@ -32,7 +32,7 @@ To prevent the load generator itself from becoming a bottleneck due to local res
 * Locust Workers: Multiple EC2 instances deployed across subnets acting as load generators that directly simulate client traffic to the Application Load Balancer.
 * Target System: All generated traffic is distributed through the ALB down to the Game Server cluster hosted inside the Private Subnet, which connects to ElastiCache Redis and the RDS Database.
 
-![Distributed Load Testing Architecture Diagram](images/5/5.2/load-test-architecture.png?featherlight=false&width=90pc)
+![Distributed Load Testing Architecture Diagram](/images/5/5.2/load-test-architecture.png?featherlight=false&width=90pc)
 
 ### 4. Test Execution
 
@@ -41,7 +41,7 @@ The load testing workflow is conducted through the following operational steps:
 2. Access the Locust Master web interface via port 8089 on a web browser.
 3. Configure the total simulated user target and the ramp-up spawn rate, pointing the target host URL to the ALB DNS name.
 
-![Locust Web UI Parameter Setup Initialization](images/5/5.2/locust-setup-ui.png?featherlight=false&width=80pc)
+![Locust Web UI Parameter Setup Initialization](/images/5/5.2/locust-setup-ui.png?featherlight=false&width=80pc)
 
 4. Launch the testing sequence and actively monitor the real-time growth curve of concurrent online users.
 5. Sustain the peak load over a specific duration to verify the long-term stability and resilience of the system.
@@ -58,7 +58,7 @@ The consolidated metric summary derived from the final load test report highligh
 | 95th Percentile Latency | 110 ms | PASSED |
 | Error Rate | 0.02% | SAFE |
 
-![Locust Dashboard Total Requests and Concurrent Users Analytics Chart](images/5/5.2/locust-charts-results.png?featherlight=false&width=90pc)
+![Locust Dashboard Total Requests and Concurrent Users Analytics Chart](/images/5/5.2/locust-charts-results.png?featherlight=false&width=90pc)
 
 ### 6. CloudWatch Monitoring
 
@@ -67,7 +67,7 @@ Throughout the entire execution phase, fundamental infrastructure metrics are ca
 * Game Server Metrics: CPU utilization spikes trigger the pre-defined auto-scaling rules, successfully spinning up additional resource capacity to handle the workload.
 * Redis Metrics: Resource consumption patterns across the caching tier demonstrate stable and optimized growth within safe operating parameters.
 
-![System Infrastructure Performance Monitoring via Amazon CloudWatch Dashboard](images/5/5.2/cloudwatch-loadtest-dashboard.png?featherlight=false&width=90pc)
+![System Infrastructure Performance Monitoring via Amazon CloudWatch Dashboard](/images/5/5.2/cloudwatch-loadtest-dashboard.png?featherlight=false&width=90pc)
 
 ### 7. Performance Analysis
 

@@ -28,7 +28,7 @@ pre : " <b> 5.5.3 </b> "
 
    **Healthy**
 
-   ![Trạng thái Healthy của Target trong Target Group](images/5/5.6/targatgroup.png?featherlight=false&width=90pc)
+   ![Trạng thái Healthy của Target trong Target Group](/images/5/5.6/targatgroup.png?featherlight=false&width=90pc)
 
 Trạng thái **Healthy** xác nhận rằng ALB có thể thực hiện Health Check thành công đối với Game Server container thông qua port `8080`.
 

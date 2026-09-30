@@ -24,7 +24,7 @@ pre : " <b> 5.5.3 </b> "
 
 6. The target should transition from **Initial** → **Healthy**.
 
-   ![Target Health Status](images/5/5.6/targatgroup.png?featherlight=false&width=90pc)
+   ![Target Health Status](/images/5/5.6/targatgroup.png?featherlight=false&width=90pc)
 
 A **Healthy** status confirms that the ALB can successfully perform the configured health check (`/health` on port 8080) against the Game Server container.
 

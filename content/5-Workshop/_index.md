@@ -14,7 +14,7 @@ This workshop focuses on the process of architecting, deploying, and testing a c
 
 The workshop uses the **Amazon Web Services (AWS)** ecosystem together with containerization, networking, security, database, load balancing, monitoring, and automated scaling technologies to build a reliable and scalable game server infrastructure.
 
-![Overall AWS Game Server Architecture Diagram](/images/architecture-diagram.png?featherlight=false&width=90pc)
+![Overall AWS Game Server Architecture Diagram](//images/architecture-diagram.png?featherlight=false&width=90pc)
 
 {{% notice info %}}
 
@@ -32,7 +32,7 @@ Public-facing resources are placed in Public Subnets, while application and data
 
 - **AWS IAM**: Managing users, roles, permissions, and authentication mechanisms to secure AWS resources.
 
-- **Amazon ECR & Docker**: Building, containerizing, and storing the Game Server application images.
+- **Amazon ECR & Docker**: Building, containerizing, and storing the Game Server application /images.
 
 - **Amazon ECS**: Orchestrating containerized Game Server applications using AWS Fargate.
 
@@ -72,10 +72,10 @@ By completing this workshop, you will learn how to:
 
 4. [5.4. Database](5.4-Database/)
 
-6. [5.5. Load Balancing](5.6-Load-Balancing/)
+5. [5.5. Load Balancing](5.6-Load-Balancing/)
 
-7. [5.6. Scaling](5.7-Scaling/)
+6. [5.6. Scaling](5.7-Scaling/)
 
-8. [5.7. Monitoring](5.8-Monitoring/)
+7. [5.7. Monitoring](5.8-Monitoring/)
 
-10. [5.8. Load Testing](5.10-load-testing/)
+8. [5.8. Load Testing](5.10-load-testing/)

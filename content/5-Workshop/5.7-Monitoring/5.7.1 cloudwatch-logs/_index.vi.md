@@ -42,7 +42,7 @@ Trong kiến trúc **Real-time Game Server**, các log được tạo từ conta
    - **AWS Region:** `ap-southeast-1`
    - **Stream prefix:** `ecs`
 
-   ![Cấu hình CloudWatch Logs cho ECS Container](images/5/5.8/cloud2.png?featherlight=false&width=90pc)
+   ![Cấu hình CloudWatch Logs cho ECS Container](/images/5/5.8/cloud2.png?featherlight=false&width=90pc)
 
 7. Kiểm tra **ECS Task Execution Role** có đầy đủ quyền để gửi log của container đến CloudWatch Logs.
 
@@ -76,7 +76,7 @@ Sau khi Game Server Task khởi động thành công:
 
 5. Mở Log Stream và kiểm tra các thông tin được ghi nhận từ Game Server container.
 
-   ![Kiểm tra CloudWatch Log Stream](images/5/5.8/cloudlog2.png?featherlight=false&width=90pc)
+   ![Kiểm tra CloudWatch Log Stream](/images/5/5.8/cloudlog2.png?featherlight=false&width=90pc)
 
 
 ## Kiểm tra Log của Real-time Game Server

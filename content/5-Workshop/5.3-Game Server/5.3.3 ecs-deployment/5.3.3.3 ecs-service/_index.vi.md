@@ -30,7 +30,7 @@ pre : " <b> 5.5.3 </b> "
      - `Private-Subnet-1B`
    - **Security group**: Chọn `game-server-sg`.
 
-   ![Cấu hình Networking cho ECS Service](images/5/5.5/ecsnetwork.png?featherlight=false&width=90pc)
+   ![Cấu hình Networking cho ECS Service](/images/5/5.5/ecsnetwork.png?featherlight=false&width=90pc)
 
 5. Kiểm tra lại cấu hình Service và nhấn **Create**.
 
@@ -38,6 +38,6 @@ pre : " <b> 5.5.3 </b> "
 
 7. Kiểm tra Task đã được khởi chạy thành công và trạng thái hiển thị là **Running**.
 
-   ![Trạng thái ECS Service Running Tasks](images/5/5.5/gametask3.png?featherlight=false&width=90pc)
+   ![Trạng thái ECS Service Running Tasks](/images/5/5.5/gametask3.png?featherlight=false&width=90pc)
 
 Sau khi Service được triển khai thành công, Amazon ECS sẽ duy trì số lượng Task theo giá trị **Desired tasks** đã cấu hình. Các Game Server container hoạt động bên trong Private Subnets và được bảo vệ bởi Security Group `game-server-sg`.

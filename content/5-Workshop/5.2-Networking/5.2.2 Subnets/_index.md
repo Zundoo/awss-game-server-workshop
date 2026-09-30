@@ -39,7 +39,7 @@ To optimize security using a **3-Tier Architecture**, the network is segmented i
 
    Click **Add new subnet** to continue creating the remaining subnets in the same wizard.
 
-   ![Create Public Subnet 1A](images/5/5.2/subnet1.png?featherlight=false&width=90pc)
+   ![Create Public Subnet 1A](/images/5/5.2/subnet1.png?featherlight=false&width=90pc)
 
 3. Create the second Public Subnet:
 
@@ -61,14 +61,14 @@ To optimize security using a **3-Tier Architecture**, the network is segmented i
 
    Click **Create subnet**.
 
-   ![Create All Subnets](images/5/5.2/subnet2.png?featherlight=false&width=90pc)
+   ![Create All Subnets](/images/5/5.2/subnet2.png?featherlight=false&width=90pc)
 
 6. (Optional but recommended) Enable **Auto-assign public IPv4 address** for the Public Subnets:
 
    - Select each Public Subnet → **Actions** → **Edit subnet settings**
    - Check **Enable auto-assign public IPv4 address** → Save
 
-   ![Enable Auto-assign Public IP](images/5/5.2/subnet3.png?featherlight=false&width=90pc)
+   ![Enable Auto-assign Public IP](/images/5/5.2/subnet3.png?featherlight=false&width=90pc)
 
 After completion, you should have 4 subnets as summarized below:
 
@@ -79,4 +79,4 @@ After completion, you should have 4 subnets as summarized below:
 | Private-Subnet-1A    | 10.0.11.0/24    | ap-southeast-1a     | Private |
 | Private-Subnet-1B    | 10.0.12.0/24    | ap-southeast-1b     | Private |
 
-![Subnets Overview](images/5/5.2/subnet.png?featherlight=false&width=90pc)
+![Subnets Overview](/images/5/5.2/subnet.png?featherlight=false&width=90pc)

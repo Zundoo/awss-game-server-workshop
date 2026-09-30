@@ -45,7 +45,7 @@ Nguồn `0.0.0.0/0` cho phép mọi client từ Internet có thể tiếp cận 
 ### Outbound Rules
 * **All traffic** → `0.0.0.0/0` (Mặc định)
 
-![ALB Security Group Inbound Rules](images/5/5.2/sgalb2.png?featherlight=false&width=90pc)
+![ALB Security Group Inbound Rules](/images/5/5.2/sgalb2.png?featherlight=false&width=90pc)
 
 > **Lưu ý:** ALB sẽ điều hướng các kết nối WebSocket từ port 443 (hoặc 80) xuống Target Group của Game Server (thường chạy trên port 8080 hoặc 3000 của các thực thể EC2/ECS).
 
@@ -73,7 +73,7 @@ Cấu hình các luật đầu vào dựa trên môi trường của Game Server
 * **All traffic** → `0.0.0.0/0`
 * *(Hoặc cấu hình nghiêm ngặt hơn: Chỉ cho phép kết nối đầu ra đi tới `rds-sg`, `redis-sg`, và ra Internet để tải các Docker image).*
 
-![Game Server Security Group Inbound Rules](images/5/5.2/sggme.png?featherlight=false&width=90pc)
+![Game Server Security Group Inbound Rules](/images/5/5.2/sggme.png?featherlight=false&width=90pc)
 
 Luật chạy ứng dụng chính cấu hình như sau:
 

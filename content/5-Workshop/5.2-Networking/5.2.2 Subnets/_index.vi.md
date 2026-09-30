@@ -39,7 +39,7 @@ pre : " <b> 5.2.2 </b> "
 
    Nhấn **Add new subnet** để tiếp tục tạo các subnet còn lại trong cùng wizard.
 
-   ![Create Public Subnet 1A](images/5/5.2/subnet1.png?featherlight=false&width=90pc)
+   ![Create Public Subnet 1A](/images/5/5.2/subnet1.png?featherlight=false&width=90pc)
 
 3. Tạo Public Subnet thứ hai:
 
@@ -61,14 +61,14 @@ pre : " <b> 5.2.2 </b> "
 
    Nhấn **Create subnet**.
 
-   ![Create All Subnets](images/5/5.2/subnet2.png?featherlight=false&width=90pc)
+   ![Create All Subnets](/images/5/5.2/subnet2.png?featherlight=false&width=90pc)
 
 6. (Tùy chọn nhưng được khuyến nghị) Bật **Auto-assign public IPv4 address** cho các Public Subnets:
 
    - Chọn từng Public Subnet → **Actions** → **Edit subnet settings**
    - Chọn **Enable auto-assign public IPv4 address** → Save
 
-   ![Enable Auto-assign Public IP](images/5/5.2/subnet3.png?featherlight=false&width=90pc)
+   ![Enable Auto-assign Public IP](/images/5/5.2/subnet3.png?featherlight=false&width=90pc)
 Sau khi hoàn thành, bạn sẽ có 4 subnet như được tổng hợp dưới đây:
 
 | Tên Subnet           | CIDR            | Availability Zone   | Loại    |
@@ -78,4 +78,4 @@ Sau khi hoàn thành, bạn sẽ có 4 subnet như được tổng hợp dưới
 | Private-Subnet-1A    | 10.0.11.0/24    | ap-southeast-1a     | Private |
 | Private-Subnet-1B    | 10.0.12.0/24    | ap-southeast-1b     | Private |
 
-![Subnets Overview](images/5/5.2/subnet.png?featherlight=false&width=90pc)
+![Subnets Overview](/images/5/5.2/subnet.png?featherlight=false&width=90pc)

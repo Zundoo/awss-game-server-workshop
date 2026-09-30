@@ -37,7 +37,7 @@ The load testing workflow is conducted through the following practical steps:
 1. Trigger the Artillery load testing script from the generator, aiming directly at the ALB DNS Name (`://amazonaws.com`).
 2. While the test is active, navigate to **EC2 > Load Balancers > alb-game-server** and open the **Monitoring** tab to track real-time dashboard metrics.
 
-![Monitoring real-time Load Balancer metrics under the Monitoring tab](images/5/5.6/testalb.png?featherlight=false&width=90pc)
+![Monitoring real-time Load Balancer metrics under the Monitoring tab](/images/5/5.6/testalb.png?featherlight=false&width=90pc)
 
 3. Concurrently, check **CloudWatch > Log management > /aws/gameserver/logs > game-server-stream** to verify successful data ingestion.
 
@@ -53,15 +53,15 @@ Throughout the load test duration, infrastructure behaviors were captured via Am
 
 * **Log Events:** The `game-server-stream` interface accurately printed incoming verification payloads from the server runtime:
 
-![The game-server-stream log events screen records incoming payload traffic from Artillery](images/5/5.8/cloudlog2.png?featherlight=false&width=90pc)
+![The game-server-stream log events screen records incoming payload traffic from Artillery](/images/5/5.8/cloudlog2.png?featherlight=false&width=90pc)
 
 * **Requests Count:** The ALB requests count chart recorded a significant spike, peaking at approximately **813 requests** during the concentrated load phase, then gracefully stabilized as traffic wrapped up.
 
-![The ALB requests count chart peaks at 813 concurrent requests](images/5/5.6/test2.png?featherlight=false&width=90pc)
+![The ALB requests count chart peaks at 813 concurrent requests](/images/5/5.6/test2.png?featherlight=false&width=90pc)
 
 * **Target Response Time:** The Target Response Time metric demonstrated exceptional stability. Aside from an initial peak of **16.7 seconds** caused by connection handshake establishment overhead, latency remained exceptionally low (near 0 seconds) for nearly the entire test duration, proving an absence of persistent congestion.
 
-![The Target Response Time metrics graph remains stable within safe limits](images/5/5.6/test3.png?featherlight=false&width=90pc)
+![The Target Response Time metrics graph remains stable within safe limits](/images/5/5.6/test3.png?featherlight=false&width=90pc)
 
 ### 7. Performance Analysis
 

@@ -29,10 +29,10 @@ pre : " <b> 5.3.1 </b> "
 
 3. Click **Launch instance**.
 
-   ![Launch EC2 Instance](images/5/5.2/ec2lunch.png?featherlight=false&width=90pc)
+   ![Launch EC2 Instance](/images/5/5.2/ec2lunch.png?featherlight=false&width=90pc)
 
 4. Attach an IAM Role with the `AmazonSSMManagedInstanceCore` policy to enable Session Manager access.
 
 5. Connect to the instance using **Session Manager**.
 
-   ![EC2 Connected via Session Manager](images/5/5.2/ec2connect.png?featherlight=false&width=90pc)
+   ![EC2 Connected via Session Manager](/images/5/5.2/ec2connect.png?featherlight=false&width=90pc)
