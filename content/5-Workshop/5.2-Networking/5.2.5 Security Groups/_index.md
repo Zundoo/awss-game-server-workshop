@@ -46,7 +46,7 @@ The source `0.0.0.0/0` allows clients from the Internet to access the public-fac
 
 * **All traffic** → `0.0.0.0/0` (Default)
 
-![ALB Security Group Inbound Rules](/awss-game-server-workshop/static/images/5/5.2/sgalb2.png?featherlight=false&width=90pc)
+![ALB Security Group Inbound Rules](images/5/5.2/sgalb2.png?featherlight=false&width=90pc)
 
 > **Note:** The ALB will forward WebSocket traffic from port 443 (or 80) down to the target group (typically port 8080 or 3000 on the EC2/ECS instances).
 
@@ -75,7 +75,7 @@ Configure the following rules according to the Game Server environment:
 * **All traffic** → `0.0.0.0/0` 
 * *(Alternative restrictive approach: Restrict outbound traffic only to `rds-sg`, `redis-sg`, and the Internet for pulling Docker images).*
 
-![Game Server Security Group Inbound Rules](/awss-game-server-workshop/static/images/5/5.2/sggme.png?featherlight=false&width=90pc)
+![Game Server Security Group Inbound Rules](images/5/5.2/sggme.png?featherlight=false&width=90pc)
 
 The main application rule is:
 

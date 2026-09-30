@@ -45,7 +45,7 @@ pre : " <b> 5.5.2 </b> "
    | `REDIS_PORT` | `6379` |
    | `REDIS_TLS` | `true` |
 
-   ![Cấu hình Container và Environment Variables trong Task Definition](/awss-game-server-workshop/static/images/5/5.5/gametak4.png?featherlight=false&width=90pc)
+   ![Cấu hình Container và Environment Variables trong Task Definition](images/5/5.5/gametak4.png?featherlight=false&width=90pc)
 6. Kiểm tra lại cấu hình Task Definition và nhấn **Create**.
 
 Sau khi Task Definition được đăng ký, revision của `game-server-task` có thể được sử dụng bởi ECS Service để khởi chạy các Game Server container trên AWS Fargate.

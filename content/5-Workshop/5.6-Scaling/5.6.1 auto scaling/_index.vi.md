@@ -34,7 +34,7 @@ Cơ chế Scaling cho phép Service **Scale Out** bằng cách khởi chạy th�
    - **ECS service metric**: `ECSServiceAverageCPUUtilization`
    - **Target value**: `70%`
 
-   ![Cấu hình Target Tracking với ngưỡng CPU 70%](/awss-game-server-workshop/static/images/5/5.7/autoscaling.png?featherlight=false&width=90pc)
+   ![Cấu hình Target Tracking với ngưỡng CPU 70%](images/5/5.7/autoscaling.png?featherlight=false&width=90pc)
 
 6. Lưu cấu hình.
 

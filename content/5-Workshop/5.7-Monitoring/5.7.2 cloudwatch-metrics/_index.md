@@ -44,7 +44,7 @@ Monitoring this metric helps identify memory pressure and potential resource con
 
 This metric is useful for observing connection load, particularly for a Game Server architecture that maintains persistent client connections through the ALB.
 
-![CloudWatch Performance Metrics Dashboard](/awss-game-server-workshop/static/images/5/5.8/cloud.png?featherlight=false&width=90pc)
+![CloudWatch Performance Metrics Dashboard](images/5/5.8/cloud.png?featherlight=false&width=90pc)
 ## Monitoring Workflow
 
 ```text

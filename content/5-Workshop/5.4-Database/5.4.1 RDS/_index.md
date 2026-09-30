@@ -35,7 +35,7 @@ pre : " <b> 5.4.1 </b> "
    - **Public access**: **No**
    - **VPC security group**: Select existing → `sg-rds`
 
-   ![RDS Connectivity Configuration](/awss-game-server-workshop/static/images/5/5.4/rdsconfic.png?featherlight=false&width=90pc)
+   ![RDS Connectivity Configuration](images/5/5.4/rdsconfic.png?featherlight=false&width=90pc)
 
 6. Configure additional settings (optional):
 
@@ -44,7 +44,7 @@ pre : " <b> 5.4.1 </b> "
 
 7. Click **Create database**.
 
-   ![Create RDS Database](/awss-game-server-workshop/static/images/5/5.4/rds2.png?featherlight=false&width=90pc)
+   ![Create RDS Database](images/5/5.4/rds2.png?featherlight=false&width=90pc)
 
 8. Wait until the status changes to **Available** (usually 5–10 minutes).
 

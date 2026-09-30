@@ -37,7 +37,7 @@ Quy trình thực hiện bài kiểm thử tải được tiến hành theo các
 1. Thực thi câu lệnh chạy kịch bản Artillery từ máy phát tải hướng thẳng mục tiêu về DNS Name của ALB (`://amazonaws.com`).
 2. Trong quá trình chạy test, truy cập vào giao diện quản trị **EC2 > Load Balancers > alb-game-server**, chọn tab **Monitoring** để theo dõi trực tiếp các chỉ số thời gian thực.
 
-![Giám sát các chỉ số thời gian thực của Load Balancer tại tab Monitoring](/awss-game-server-workshop/static/images/5/5.6/testalb.png?featherlight=false&width=90pc)
+![Giám sát các chỉ số thời gian thực của Load Balancer tại tab Monitoring](images/5/5.6/testalb.png?featherlight=false&width=90pc)
 
 3. Song song với đó, truy cập vào **CloudWatch > Log management > /aws/gameserver/logs > game-server-stream** để xác nhận máy chủ nhận được dữ liệu.
 
@@ -53,15 +53,15 @@ Trong suốt quá trình kiểm thử tải, các chỉ số và dữ liệu h�
 
 * **Log Events:** Tại màn hình Log events của luồng `game-server-stream`, hệ thống liên tục in ra các dòng thông báo chứng minh kết nối thành công:
 
-![Log events của luồng game-server-stream ghi nhận dữ liệu truyền tải từ Artillery](/awss-game-server-workshop/static/images/5/5.8/cloudlog2.png?featherlight=false&width=90pc)
+![Log events của luồng game-server-stream ghi nhận dữ liệu truyền tải từ Artillery](images/5/5.8/cloudlog2.png?featherlight=false&width=90pc)
 
 * **Requests Count:** Biểu đồ lượng Request trên ALB ghi nhận một đợt tăng trưởng đột biến mạnh mẽ, đạt đỉnh với giá trị cao nhất khoảng **813 requests** tại thời điểm phát tải tập trung, sau đó hạ dần khi bài test kết thúc.
 
-![Biểu đồ lượng Request trên bộ cân bằng tải ALB đạt mốc đỉnh điểm 813 kết nối](/awss-game-server-workshop/static/images/5/5.6/test2.png?featherlight=false&width=90pc)
+![Biểu đồ lượng Request trên bộ cân bằng tải ALB đạt mốc đỉnh điểm 813 kết nối](images/5/5.6/test2.png?featherlight=false&width=90pc)
 
 * **Target Response Time:** Đồ thị thời gian phản hồi đích (Target Response Time) duy trì vô cùng ổn định. Ngoài mốc khởi đầu đạt ngưỡng cao nhất khoảng 16.7 giây do cơ chế khởi động kết nối ban đầu, phần lớn thời gian xử lý các request đều nằm ở mức vô cùng thấp (gần chạm ngưỡng 0 giây), đảm bảo trải nghiệm mượt mà.
 
-![Đồ thị thời gian phản hồi Target Response Time duy trì ổn định ở mức an toàn](/awss-game-server-workshop/static/images/5/5.6/test3.png?featherlight=false&width=90pc)
+![Đồ thị thời gian phản hồi Target Response Time duy trì ổn định ở mức an toàn](images/5/5.6/test3.png?featherlight=false&width=90pc)
 
 ### 7. Performance Analysis
 

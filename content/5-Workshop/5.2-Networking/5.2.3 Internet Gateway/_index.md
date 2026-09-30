@@ -20,7 +20,7 @@ pre : " <b> 5.2.3 </b> "
 
    Click **Create internet gateway**.
 
-   ![Create Internet Gateway](/awss-game-server-workshop/static/images/5/5.2/igw1.png?featherlight=false&width=90pc)
+   ![Create Internet Gateway](images/5/5.2/igw1.png?featherlight=false&width=90pc)
 3. Select the newly created Internet Gateway (`game-server-igw`) > click **Actions** > select **Attach to VPC**.
 
 4. Select `game-server-vpc` from the VPC list and click **Attach internet gateway**.
@@ -30,5 +30,5 @@ pre : " <b> 5.2.3 </b> "
    - The Internet Gateway should now show **State: Attached**
    - It is associated with `game-server-vpc`
 
-   ![Internet Gateway Attached Successfully](/awss-game-server-workshop/static/images/5/5.2/igw2.png?featherlight=false&width=90pc)
+   ![Internet Gateway Attached Successfully](images/5/5.2/igw2.png?featherlight=false&width=90pc)
 The Internet Gateway is now attached to the `game-server-vpc` and can be used by resources in the Public Subnets to communicate with the Internet through the Public Route Table (`0.0.0.0/0` → Internet Gateway).

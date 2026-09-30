@@ -21,7 +21,7 @@ Create a Route Table named `game-public-rt` for the Public Subnets.
    - **Name**: `game-public-rt`
    - **VPC**: `game-server-vpc`
 
-   ![Creating Public Route Table](/awss-game-server-workshop/static/images/5/5.2/rtpublic.png?featherlight=false&width=90pc)
+   ![Creating Public Route Table](images/5/5.2/rtpublic.png?featherlight=false&width=90pc)
 
 3. Select `game-public-rt` > open the **Routes** tab > click **Edit routes**.
 
@@ -32,7 +32,7 @@ Create a Route Table named `game-public-rt` for the Public Subnets.
 
    This route allows resources in the associated Public Subnets (ALB, NAT Gateway) to communicate with the public Internet through the Internet Gateway.
 
-   ![Public Route Table - Routes configuration](/awss-game-server-workshop/static/images/5/5.2/rtpublic2.png?featherlight=false&width=90pc)
+   ![Public Route Table - Routes configuration](images/5/5.2/rtpublic2.png?featherlight=false&width=90pc)
 
 5. Open the **Subnet associations** tab > click **Edit subnet associations**.
 
@@ -43,7 +43,7 @@ Create a Route Table named `game-public-rt` for the Public Subnets.
 
    Click **Save associations**.
 
-   ![Public Route Table - Subnet Associations](/awss-game-server-workshop/static/images/5/5.2/rtpulic3.png?featherlight=false&width=90pc)
+   ![Public Route Table - Subnet Associations](images/5/5.2/rtpulic3.png?featherlight=false&width=90pc)
 
 ### 2. Private Route Table
 
@@ -56,7 +56,7 @@ Create a separate Route Table named `game-private-rt` for the Private Subnets.
    - **Name**: `game-private-rt`
    - **VPC**: `game-server-vpc`
 
-   ![Creating Private Route Table](/awss-game-server-workshop/static/images/5/5.2/rtprivate.png?featherlight=false&width=90pc)
+   ![Creating Private Route Table](images/5/5.2/rtprivate.png?featherlight=false&width=90pc)
 3. Keep the default **Local** route:
 
    - **Destination**: `10.0.0.0/16`
@@ -69,7 +69,7 @@ Create a separate Route Table named `game-private-rt` for the Private Subnets.
 
    This route allows resources in the Private Subnets (EC2 Game Server, RDS, Redis) to access the Internet **through the NAT Gateway** (for pulling Docker images, SSM Agent, package updates, etc.) while remaining unreachable directly from the public Internet.
 
-   ![Private Route Table - Routes with NAT Gateway](/awss-game-server-workshop/static/images/5/5.2/rtprivate2.png?featherlight=false&width=90pc)
+   ![Private Route Table - Routes with NAT Gateway](images/5/5.2/rtprivate2.png?featherlight=false&width=90pc)
 
 5. Open the **Subnet associations** tab > click **Edit subnet associations**.
 
@@ -80,7 +80,7 @@ Create a separate Route Table named `game-private-rt` for the Private Subnets.
 
    Click **Save associations**.
 
-   ![Private Route Table - Subnet Associations](/awss-game-server-workshop/static/images/5/5.2/rtprivate3.png?featherlight=false&width=90pc)
+   ![Private Route Table - Subnet Associations](images/5/5.2/rtprivate3.png?featherlight=false&width=90pc)
 After completing the configuration:
 
 - Public Subnets use `game-public-rt` → traffic goes out via **Internet Gateway**.

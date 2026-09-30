@@ -23,10 +23,10 @@ pre : " <b> 5.5.1 </b> "
 
    AWS Fargate cung cấp môi trường chạy container theo mô hình serverless, cho phép Game Server container hoạt động mà không cần trực tiếp quản lý các EC2 Instance bên dưới.
 
-   ![Cấu hình ECS Cluster](/awss-game-server-workshop/static/images/5/5.5/createcluster.png?featherlight=false&width=90pc)
+   ![Cấu hình ECS Cluster](images/5/5.5/createcluster.png?featherlight=false&width=90pc)
 
 4. Kiểm tra lại cấu hình và nhấn **Create**.
 
 Sau khi Cluster được tạo, `game-server-cluster` sẽ sẵn sàng để triển khai các Container Task của Game Server thông qua Amazon ECS.
 
-![ECS Cluster được khởi tạo thành công](/awss-game-server-workshop/static/images/5/5.5/cluster.png?featherlight=false&width=90pc)
+![ECS Cluster được khởi tạo thành công](images/5/5.5/cluster.png?featherlight=false&width=90pc)

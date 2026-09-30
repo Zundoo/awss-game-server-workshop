@@ -30,7 +30,7 @@ pre : " <b> 5.5.3 </b> "
      - `Private-Subnet-1B`
    - **Security group**: Select `game-server-sg`.
 
-   ![ECS Service Networking Configuration](/awss-game-server-workshop/static/images/5/5.5/ecsnetwork.png?featherlight=false&width=90pc)
+   ![ECS Service Networking Configuration](images/5/5.5/ecsnetwork.png?featherlight=false&width=90pc)
 
 5. Review the Service configuration and click **Create**.
 
@@ -38,6 +38,6 @@ pre : " <b> 5.5.3 </b> "
 
 7. Verify that the desired task has been successfully started and its status is **Running**.
 
-   ![ECS Service Running Tasks Instance Status](/awss-game-server-workshop/static/images/5/5.5/gametask3.png?featherlight=false&width=90pc)
+   ![ECS Service Running Tasks Instance Status](images/5/5.5/gametask3.png?featherlight=false&width=90pc)
 
 After the Service is successfully deployed, Amazon ECS will maintain the configured desired task count. The Game Server containers run inside the Private Subnets and are protected by the `game-server-sg` Security Group.

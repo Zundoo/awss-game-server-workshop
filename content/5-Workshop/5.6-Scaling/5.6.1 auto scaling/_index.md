@@ -34,7 +34,7 @@ The scaling policy allows the service to **scale out** by launching additional t
    - **ECS service metric**: `ECSServiceAverageCPUUtilization`
    - **Target value**: `70%`
 
-   ![Target Tracking Scaling Configuration at 70% CPU Threshold](/awss-game-server-workshop/static/images/5/5.7/autoscaling.png?featherlight=false&width=90pc)
+   ![Target Tracking Scaling Configuration at 70% CPU Threshold](images/5/5.7/autoscaling.png?featherlight=false&width=90pc)
 
 6. Save the configuration.
 

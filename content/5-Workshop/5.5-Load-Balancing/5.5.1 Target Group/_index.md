@@ -33,11 +33,11 @@ pre : " <b> 5.5.1 </b> "
    - **Timeout**: 5 seconds
    - **Interval**: 30 seconds
 
-   ![Target Group Health Check Configuration](/awss-game-server-workshop/static/images/5/5.6/healcheck.png?featherlight=false&width=90pc)
+   ![Target Group Health Check Configuration](/awss-game-server-workshop/images/5/5.6/healcheck.png?featherlight=false&width=90pc)
 
 4. Review the configuration and click **Create target group**.
 
-   ![Create Target Group](/awss-game-server-workshop/static/images/5/5.6/targetgr.png?featherlight=false&width=90pc)
+   ![Create Target Group](images/5/5.6/targetgr.png?featherlight=false&width=90pc)
 The Target Group will be used by the Application Load Balancer to route incoming traffic to the Game Server containers running on port `8080`.
 
 When the ECS Service is integrated with this Target Group, ECS automatically registers and deregisters the private IP addresses of the running Fargate tasks.

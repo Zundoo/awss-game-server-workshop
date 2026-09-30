@@ -44,7 +44,7 @@ Theo dõi metric này giúp phát hiện tình trạng thiếu bộ nhớ và c�
 
 Metric này hữu ích để quan sát mức tải kết nối, đặc biệt đối với kiến trúc Game Server sử dụng các kết nối persistent thông qua ALB.
 
-![CloudWatch Performance Metrics Dashboard](/awss-game-server-workshop/static/images/5/5.8/cloud.png?featherlight=false&width=90pc)
+![CloudWatch Performance Metrics Dashboard](images/5/5.8/cloud.png?featherlight=false&width=90pc)
 
 ## Quy trình giám sát
 

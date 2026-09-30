@@ -33,7 +33,7 @@ Redis được triển khai trong **Private Subnets** của `game-server-vpc` v�
    - **Security groups**: Chọn `sg-redis`
    - **Encryption in transit**: Disabled (để thuận tiện cho việc kiểm thử trong workshop)
 
-   ![ElastiCache Redis Configuration](/awss-game-server-workshop/static/images/5/5.4/redis.png?featherlight=false&width=90pc)
+   ![ElastiCache Redis Configuration](images/5/5.4/redis.png?featherlight=false&width=90pc)
 
 4. Nhấn **Create**.
 

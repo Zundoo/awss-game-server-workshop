@@ -33,7 +33,7 @@ Redis is deployed within the **Private Subnets** of `game-server-vpc` and only a
    - **Security groups**: Select `sg-redis`
    - **Encryption in transit**: Disabled (for easier testing in the workshop)
 
-   ![ElastiCache Redis Configuration](/awss-game-server-workshop/static/images/5/5.4/redis.png?featherlight=false&width=90pc)
+   ![ElastiCache Redis Configuration](images/5/5.4/redis.png?featherlight=false&width=90pc)
 4. Click **Create**.
 
 5. Wait until the status becomes **Available** (usually 5–8 minutes).
