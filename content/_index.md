@@ -39,10 +39,8 @@ Customers who choose AWS Support gain one-on-one, fast-response support from AWS
 
 #### Main Content
 
-1. [Worklog](1-Worklog/)
 2. [Proposal](2-Proposal/)
 3. [Event](3-Event/)
-4. [Blogs Posted](4-BlogsPosted/)
 5. [Workshop](5-Workshop/)
 6. [Self-Assessment](6-Self-Assessment/)
 7. [Sharing and Feedback](7-Sharing-and-Feedback/)
