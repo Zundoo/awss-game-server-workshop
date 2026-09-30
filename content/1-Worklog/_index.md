@@ -1,9 +1,9 @@
 ---
-title: "Workshop"
+title: "Worklog"
 date: "`r Sys.Date()`"
 weight: 1
 chapter: true
-pre: " <b> 5. </b> "
+pre: " <b> 1. </b> "
 ---
 
 # AWS REAL-TIME GAME SERVER WORKSHOP
@@ -64,18 +64,13 @@ By completing this workshop, you will learn how to:
 
 #### Workshop Implementation Navigation
 
-1. [5.1. IAM & Regional Configuration](5.1-IAM%20%26%20Region%20Setup/)
+1. [1.1. Week-1-Worklog](1.1-Week-1-Worklog/)
 
-2. [5.2. Networking](5.2-Networking/)
+2. [5.2. Week-2-Worklog](1.2-Week-2-Worklog/)
 
-3. [5.3. Game Server](5.3-Game%20Server/)
+3. [5.3. Week-3-Worklog](1.3-Week-3-Worklog/)
 
-4. [5.4. Database](5.4-Database/)
+4. [5.4. Week-4-Worklog](1.4-Week-4-Worklog/)
 
-6. [5.5. Load Balancing](5.6-Load-Balancing/)
+5. [5.5. Week-5-Worklog](1.5-Week-5-Worklog/)
 
-7. [5.6. Scaling](5.7-Scaling/)
-
-8. [5.7. Monitoring](5.8-Monitoring/)
-
-10. [5.8. Load Testing](5.10-load-testing/)

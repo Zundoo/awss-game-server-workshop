@@ -72,10 +72,10 @@ Sau khi hoàn thành Workshop, bạn sẽ học được cách:
 
 4. [5.4. Database](5.4-Database/)
 
-6. [5.5. Load Balancing](5.6-Load-Balancing/)
+5. [5.5. Load Balancing](5.6-Load-Balancing/)
 
-7. [5.6. Scaling](5.7-Scaling/)
+6. [5.6. Scaling](5.7-Scaling/)
 
-8. [5.7. Monitoring](5.8-Monitoring/)
+7. [5.7. Monitoring](5.8-Monitoring/)
 
-10. [5.8. Load Testing](5.10-load-testing/)
+8. [5.8. Load Testing](5.10-load-testing/)
