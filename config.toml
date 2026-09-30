@@ -1,9 +1,8 @@
 # Change the default theme to be use when building the site with Hugo
-baseURL = "https://zundoo.github.io/awss-game-server-workshop/"
-
-# Ép buộc Hugo tự động sửa lỗi và chuẩn hóa đường dẫn tương đối cho hình ảnh, CSS, JS
-canonifyURLs = true
+baseURL = "https://github.io"
+canonifyURLs = false
 relativeURLs = true
+
 theme = "hugo-theme-learn"
 
 # For search functionality
