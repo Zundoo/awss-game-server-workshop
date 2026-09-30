@@ -8,36 +8,132 @@ pre : " <b> 5.2.5 </b> "
 
 ## Firewall Rule Management (Security Groups)
 
-Enforce the **Principle of Least Privilege** to build robust firewall perimeters for the Game Server infrastructure.
+Security Groups act as **stateful virtual firewalls** that control inbound and outbound traffic for AWS resources.
 
-### 1. ALB Security Group
+For the Game Server infrastructure, Security Groups are configured according to the **Principle of Least Privilege**, allowing only the traffic required by each component.
 
-Create a Security Group named `alb-sg` for the Application Load Balancer.
+The main Security Groups used in this workshop are:
 
-* **Inbound Rules**:
+| Security Group | Resource | Purpose |
+|---|---|---|
+| `alb-sg` | Application Load Balancer | Allow public client traffic (HTTP/HTTPS/WebSocket) |
+| `game-server-sg` | Game Server / ECS / EC2 | Allow traffic from the ALB and administration |
+| `rds-sg` | Relational Database Service | Allow database access from Game Servers only |
+| `redis-sg` | ElastiCache / Redis | Allow cache and Pub/Sub access from Game Servers only |
+| `bastion-sg` | Bastion Host (Optional) | Provide secure administrative SSH access |
 
-  - **Type**: HTTP
-  - **Port**: `80`
-  - **Source**: `0.0.0.0/0`
+---
 
-This allows players to establish connections to the Game Server through the public Application Load Balancer.
+## 1. ALB Security Group
 
-![ALB Security Group Inbound Rules](/images/5/5.2/5.2.5/0001.png?featherlight=false&width=90pc)
+Create a Security Group named `alb-sg` for the **Application Load Balancer**.
 
-### 2. Game Server Security Group
+The ALB is the public entry point of the Game Server infrastructure. It receives client connections and forwards traffic to the Game Server running in the Private Subnet.
 
-Create a Security Group named `game-server-sg` for the EC2/ECS Game Server resources.
+### Inbound Rules
 
-* **Inbound Rules**:
+Configure the following inbound rules:
 
-  - **Type**: Custom TCP
-  - **Port**: `8080`
-  - **Source**: `alb-sg` Security Group
+| Type | Protocol | Port Range | Source | Description / Purpose |
+|---|---|---:|---|---|
+| HTTP | TCP | `80` | `0.0.0.0/0` | HTTP (Redirect to HTTPS) |
+| HTTPS | TCP | `443` | `0.0.0.0/0` | HTTPS + WebSocket (WSS) |
+| Custom TCP | TCP | `8080` | `0.0.0.0/0` | (Optional) If exposing a dedicated WebSocket port |
 
-The source should be restricted to the **Security Group ID of the ALB (`alb-sg`)** instead of allowing traffic from `0.0.0.0/0`.
+The source `0.0.0.0/0` allows clients from the Internet to access the public-facing ALB.
 
-![Game Server Security Group Inbound Rules](/images/5/5.2/5.2.5/0002.png?featherlight=false&width=90pc)
+### Outbound Rules
 
-This configuration prevents direct access to the Game Server from the public Internet. Only traffic forwarded through the Application Load Balancer is allowed to reach the application port `8080`.
+* **All traffic** → `0.0.0.0/0` (Default)
 
-By applying the **Principle of Least Privilege**, the ALB acts as the public entry point while the Game Server remains protected inside the private network.
+![ALB Security Group Inbound Rules](/awss-game-server-workshop/static/images/5/5.2/sgalb2.png?featherlight=false&width=90pc)
+
+> **Note:** The ALB will forward WebSocket traffic from port 443 (or 80) down to the target group (typically port 8080 or 3000 on the EC2/ECS instances).
+
+---
+
+## 2. Game Server Security Group
+
+Create a Security Group named `game-server-sg` for the Game Server resources.
+
+The Game Server runs inside the **Private Subnet** and should not be directly accessible from the public Internet.
+
+### Inbound Rules
+
+Configure the following rules according to the Game Server environment:
+
+| Type | Protocol | Port Range | Source | Description / Purpose |
+|---|---|---:|---|---|
+| Custom TCP | TCP | `8080` | `alb-sg` | WebSocket from ALB (Most important) |
+| Custom TCP | TCP | `3000` | `alb-sg` | Application/service traffic (If app uses port 3000) |
+| HTTP | TCP | `80` | `alb-sg` | Health check / HTTP traffic (If needed) |
+| SSH | TCP | `22` | `Your-IP/32` or `bastion-sg` | EC2 Administrative access |
+| Custom TCP | TCP | `8080` | `game-server-sg` | (Optional) Inter-server communication |
+
+### Outbound Rules
+
+* **All traffic** → `0.0.0.0/0` 
+* *(Alternative restrictive approach: Restrict outbound traffic only to `rds-sg`, `redis-sg`, and the Internet for pulling Docker images).*
+
+![Game Server Security Group Inbound Rules](/awss-game-server-workshop/static/images/5/5.2/sggme.png?featherlight=false&width=90pc)
+
+The main application rule is:
+
+```text
+Type:   Custom TCP
+Port:   8080
+Source: alb-sg
+```
+
+---
+
+## 3. RDS Security Group
+
+Create a Security Group named `rds-sg` for the **Relational Database Service (RDS)**.
+
+### Inbound Rules
+
+| Type | Protocol | Port Range | Source | Description / Purpose |
+|---|---|---:|---|---|
+| MySQL/Aurora | TCP | `3306` | `game-server-sg` | Restrict database access to Game Servers only |
+| PostgreSQL | TCP | `5432` | `game-server-sg` | (If using PostgreSQL) |
+
+### Outbound Rules
+
+* **All traffic** → `0.0.0.0/0` (Or retain only if explicitly required)
+
+> **Critical Security Warning:** Never open the RDS Security Group inbound rules to `0.0.0.0/0`.
+
+---
+
+## 4. Redis Security Group
+
+Create a Security Group named `redis-sg` for the **Redis / ElastiCache** cluster.
+
+### Inbound Rules
+
+| Type | Protocol | Port Range | Source | Description / Purpose |
+|---|---|---:|---|---|
+| Custom TCP | TCP | `6379` | `game-server-sg` | Redis access (Cache + WebSocket Pub/Sub) |
+
+### Outbound Rules
+
+* **All traffic** → `0.0.0.0/0`
+
+---
+
+## 5. Bastion Host Security Group (Recommended)
+
+Create a Security Group named `bastion-sg` to enable **Secure SSH Access** to your private infrastructure.
+
+### Inbound Rules
+
+| Type | Protocol | Port Range | Source | Description / Purpose |
+|---|---|---:|---|---|
+| SSH | TCP | `22` | `Your-IP/32` | Restrict SSH access strictly to your public IP |
+
+### Outbound Rules
+
+* **All traffic** → `0.0.0.0/0`
+
+> **Best Practice:** When utilizing a Bastion Host, ensure that the `game-server-sg` inbound rules for SSH (Port 22) **only** allow the `bastion-sg` as the source instead of any personal IP addresses.

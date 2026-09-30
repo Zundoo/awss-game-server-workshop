@@ -20,21 +20,17 @@ pre : " <b> 5.2.3 </b> "
 
    Nhấn **Create internet gateway**.
 
-   ![Create Internet Gateway](/images/5/5.2/igw-create.png?featherlight=false&width=90pc)
+   ![Create Internet Gateway](/awss-game-server-workshop/static/images/5/5.2/igw1.png?featherlight=false&width=90pc)
 
 3. Chọn Internet Gateway vừa tạo (`game-server-igw`) > nhấn **Actions** > chọn **Attach to VPC**.
 
-   ![Attach Internet Gateway to VPC](/images/5/5.2/igw-attach.png?featherlight=false&width=90pc)
-
 4. Chọn `game-server-vpc` từ danh sách VPC và nhấn **Attach internet gateway**.
-
-   ![Select VPC to Attach](/images/5/5.2/igw-select-vpc.png?featherlight=false&width=90pc)
 
 5. Kiểm tra trạng thái:
 
    - Internet Gateway phải hiển thị **State: Attached**
    - Internet Gateway được liên kết với `game-server-vpc`
 
-   ![Internet Gateway Attached Successfully](/images/5/5.2/igw-attached.png?featherlight=false&width=90pc)
+   ![Internet Gateway Attached Successfully](/awss-game-server-workshop/static/images/5/5.2/igw2.png?featherlight=false&width=90pc)
 
 Internet Gateway hiện đã được gắn với `game-server-vpc` và có thể được sử dụng bởi các tài nguyên trong Public Subnets để giao tiếp với Internet thông qua Public Route Table (`0.0.0.0/0` → Internet Gateway).

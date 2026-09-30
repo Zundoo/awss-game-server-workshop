@@ -33,11 +33,11 @@ pre : " <b> 5.5.1 </b> "
    - **Timeout**: 5 seconds
    - **Interval**: 30 seconds
 
-   ![Target Group Health Check Configuration](/images/5/5.6/tg-health-check.png?featherlight=false&width=90pc)
+   ![Target Group Health Check Configuration](/awss-game-server-workshop/static/images/5/5.6/healcheck.png?featherlight=false&width=90pc)
 
 4. Kiểm tra lại cấu hình và nhấn **Create target group**.
 
-   ![Create Target Group](/images/5/5.6/tg-create.png?featherlight=false&width=90pc)
+   ![Create Target Group](/awss-game-server-workshop/static/images/5/5.6/targetgr.png?featherlight=false&width=90pc)
 
 Target Group sẽ được Application Load Balancer sử dụng để định tuyến lưu lượng đến các container Game Server đang chạy trên port `8080`.
 

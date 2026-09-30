@@ -31,7 +31,7 @@ ALB cũng hỗ trợ **WebSocket connections** thông qua HTTP listener, cho ph�
      - `Public-Subnet-1A`
      - `Public-Subnet-1B`
 
-   ![ALB Network Mapping](/images/5/5.6/alb-network.png?featherlight=false&width=90pc)
+   ![ALB Network Mapping](/awss-game-server-workshop/static/images/5/5.6/albnetwork.png?featherlight=false&width=90pc)
 
 5. Cấu hình **Security groups**:
 
@@ -46,11 +46,11 @@ ALB cũng hỗ trợ **WebSocket connections** thông qua HTTP listener, cho ph�
    - **Default action**: Forward to target group
    - **Target group**: `tg-game-server`
 
-   ![ALB Listener Configuration](/images/5/5.6/alb-listener.png?featherlight=false&width=90pc)
+   ![ALB Listener Configuration](/awss-game-server-workshop/static/images/5/5.6/alblisten.png?featherlight=false&width=90pc)
 
 7. Kiểm tra lại cấu hình và nhấn **Create load balancer**.
 
-   ![Create Application Load Balancer](/images/5/5.6/alb-create.png?featherlight=false&width=90pc)
+   ![Create Application Load Balancer](/awss-game-server-workshop/static/images/5/5.6/albcreate.png?featherlight=false&width=90pc)
 
 8. Chờ cho đến khi trạng thái của ALB chuyển sang **Active**, sau đó sao chép **DNS name**.
 

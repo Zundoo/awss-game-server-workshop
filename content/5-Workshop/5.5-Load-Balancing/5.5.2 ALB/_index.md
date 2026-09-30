@@ -31,7 +31,7 @@ The ALB also supports **WebSocket connections** through the HTTP listener, allow
      - `Public-Subnet-1A`
      - `Public-Subnet-1B`
 
-   ![ALB Network Mapping](/images/5/5.6/alb-network.png?featherlight=false&width=90pc)
+   ![ALB Network Mapping](/awss-game-server-workshop/static/images/5/5.6/albnetwork.png?featherlight=false&width=90pc)
 
 5. Configure **Security groups**:
 
@@ -46,11 +46,11 @@ The ALB also supports **WebSocket connections** through the HTTP listener, allow
    - **Default action**: Forward to target group
    - **Target group**: `tg-game-server`
 
-   ![ALB Listener Configuration](/images/5/5.6/alb-listener.png?featherlight=false&width=90pc)
+   ![ALB Listener Configuration](/awss-game-server-workshop/static/images/5/5.6/alblisten.png?featherlight=false&width=90pc)
 
 7. Review the configuration and click **Create load balancer**.
 
-   ![Create Application Load Balancer](/images/5/5.6/alb-create.png?featherlight=false&width=90pc)
+   ![Create Application Load Balancer](/awss-game-server-workshop/static/images/5/5.6/albcreate.png?featherlight=false&width=90pc)
 
 8. Wait until the ALB status becomes **Active**, then copy the **DNS name**.
 

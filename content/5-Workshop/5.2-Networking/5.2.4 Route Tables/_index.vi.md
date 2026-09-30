@@ -1,5 +1,5 @@
 ---
-title : "Bảng định tuyến"
+title : "Route Table"
 date : "`r Sys.Date()`"
 weight : 4
 chapter : false
@@ -21,7 +21,7 @@ Tạo một Route Table có tên `game-public-rt` dành cho các Public Subnets.
    - **Name**: `game-public-rt`
    - **VPC**: `game-server-vpc`
 
-   ![Creating Public Route Table](/images/5/5.2/rt1.png?featherlight=false&width=90pc)
+   ![Creating Public Route Table](/awss-game-server-workshop/static/images/5/5.2/rtpublic.png?featherlight=false&width=90pc)
 
 3. Chọn `game-public-rt` > mở tab **Routes** > nhấn **Edit routes**.
 
@@ -32,7 +32,7 @@ Tạo một Route Table có tên `game-public-rt` dành cho các Public Subnets.
 
    Route này cho phép các tài nguyên trong các Public Subnets được liên kết (ALB, NAT Gateway) giao tiếp với Internet thông qua Internet Gateway.
 
-   ![Public Route Table - Routes configuration](/images/5/5.2/rt-public-routes.png?featherlight=false&width=90pc)
+   ![Public Route Table - Routes configuration](/awss-game-server-workshop/static/images/5/5.2/rtpublic2.png?featherlight=false&width=90pc)
 
 5. Mở tab **Subnet associations** > nhấn **Edit subnet associations**.
 
@@ -43,8 +43,7 @@ Tạo một Route Table có tên `game-public-rt` dành cho các Public Subnets.
 
    Nhấn **Save associations**.
 
-   ![Public Route Table - Subnet Associations](/images/5/5.2/rt-public-assoc.png?featherlight=false&width=90pc)
-
+   ![Public Route Table - Subnet Associations](/awss-game-server-workshop/static/images/5/5.2/rtpulic3.png?featherlight=false&width=90pc)
 ### 2. Private Route Table
 
 Tạo một Route Table riêng có tên `game-private-rt` dành cho các Private Subnets.
@@ -56,7 +55,7 @@ Tạo một Route Table riêng có tên `game-private-rt` dành cho các Private
    - **Name**: `game-private-rt`
    - **VPC**: `game-server-vpc`
 
-   ![Creating Private Route Table](/images/5/5.2/rt-private-create.png?featherlight=false&width=90pc)
+   ![Creating Private Route Table](/awss-game-server-workshop/static/images/5/5.2/rtprivate.png?featherlight=false&width=90pc)
 
 3. Giữ lại route **Local** mặc định:
 
@@ -70,7 +69,7 @@ Tạo một Route Table riêng có tên `game-private-rt` dành cho các Private
 
    Route này cho phép các tài nguyên trong Private Subnets (EC2 Game Server, RDS, Redis) truy cập Internet **thông qua NAT Gateway** (để tải Docker images, SSM Agent, cập nhật package, v.v.) trong khi vẫn không thể được truy cập trực tiếp từ Internet công cộng.
 
-   ![Private Route Table - Routes with NAT Gateway](/images/5/5.2/rt-private-routes.png?featherlight=false&width=90pc)
+   ![Private Route Table - Routes with NAT Gateway](/awss-game-server-workshop/static/images/5/5.2/rtprivate2.png?featherlight=false&width=90pc)
 
 5. Mở tab **Subnet associations** > nhấn **Edit subnet associations**.
 
@@ -81,13 +80,10 @@ Tạo một Route Table riêng có tên `game-private-rt` dành cho các Private
 
    Nhấn **Save associations**.
 
-   ![Private Route Table - Subnet Associations](/images/5/5.2/rt-private-assoc.png?featherlight=false&width=90pc)
-
+   ![Private Route Table - Subnet Associations](/awss-game-server-workshop/static/images/5/5.2/rtprivate3.png?featherlight=false&width=90pc)
 Sau khi hoàn thành cấu hình:
 
 - Public Subnets sử dụng `game-public-rt` → lưu lượng đi ra ngoài thông qua **Internet Gateway**.
 - Private Subnets sử dụng `game-private-rt` → lưu lượng đi ra ngoài thông qua **NAT Gateway** (không có route trực tiếp đến Internet Gateway).
 
 Thiết kế này giúp Game Server, RDS và Redis được giữ trong mạng riêng (Private Network), đồng thời vẫn cho phép các tài nguyên thực hiện những kết nối ra ngoài Internet cần thiết.
-
-![Final Route Tables Overview](/images/5/5.2/rt-overview.png?featherlight=false&width=90pc)

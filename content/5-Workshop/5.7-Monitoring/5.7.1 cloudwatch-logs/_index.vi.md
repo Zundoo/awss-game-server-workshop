@@ -1,98 +1,100 @@
 ---
+
 title : "CloudWatch Logs"
+
 date : "`r Sys.Date()`"
+
 weight : 1
+
 chapter : false
+
 pre : " <b> 5.7.1 </b> "
+
 ---
 
 ## Cấu hình tập trung Log với CloudWatch Logs
 
-**Mục tiêu:** Tập trung các log được tạo bởi Game Server container vào Amazon CloudWatch Logs để phục vụ giám sát, xử lý lỗi và phân tích hoạt động của hệ thống theo thời gian thực.
+**Mục tiêu:** Tập trung các log của các container Game Server vào **Amazon CloudWatch Logs** để theo dõi hoạt động theo thời gian thực, hỗ trợ kiểm tra lỗi và phân tích hoạt động của hệ thống.
 
-Log driver `awslogs` cho phép chuyển trực tiếp output của container đến một Log Group tập trung trên CloudWatch Logs.
+Trong kiến trúc **Real-time Game Server**, các log được tạo từ container ECS Fargate sẽ được thu thập và gửi đến **Amazon CloudWatch Logs** thông qua cấu hình log collection của ECS.
 
 ## Các bước cấu hình
 
-1. Truy cập **Amazon ECS** > **Task Definitions** và chọn:
+1. Truy cập **Amazon ECS** > **Task Definitions**.
+
+2. Chọn Task Definition của Game Server:
 
    `game-server-task`
 
-2. Tạo một revision mới hoặc cập nhật Task Definition hiện tại.
+3. Tạo một **Task Definition revision** mới hoặc cập nhật revision hiện tại.
 
-3. Mở cấu hình **Container** của:
+4. Mở phần cấu hình **Container** của container:
 
    `game-server`
 
-4. Cấu hình **Log collection** sử dụng `awslogs`:
+5. Bật tùy chọn **Log collection**.
 
-   - **Log driver**: `awslogs`
-   - **Log group**: `/aws/ecs/game-server`
-   - **AWS Region**: `ap-southeast-1`
-   - **Stream prefix**: `game-server`
+6. Cấu hình **Amazon CloudWatch** làm nơi lưu trữ log với các thông số:
 
-   ![Cấu hình CloudWatch Logs cho ECS Container](/images/5/5.8/5.8.1/0001.png?featherlight=false&width=90pc)
+   - **Destination:** `Amazon CloudWatch`
+   - **Log group:** `/ecs/game-server-task`
+   - **Create log group:** `true`
+   - **AWS Region:** `ap-southeast-1`
+   - **Stream prefix:** `ecs`
 
-5. Đảm bảo **Task Execution Role** của ECS Task có quyền tạo Log Stream và ghi Log Event vào CloudWatch Log Group đã cấu hình.
+   ![Cấu hình CloudWatch Logs cho ECS Container](/awss-game-server-workshop/static/images/5/5.8/cloud2.png?featherlight=false&width=90pc)
 
-6. Đăng ký revision mới của Task Definition và cập nhật ECS Service để sử dụng revision này.
+7. Kiểm tra **ECS Task Execution Role** có đầy đủ quyền để gửi log của container đến CloudWatch Logs.
 
-7. Sau khi Task mới khởi chạy thành công, truy cập:
+   Policy AWS-managed thường được sử dụng cho mục đích này:
 
-   **Amazon CloudWatch** > **Logs** > **Log groups**
+   `AmazonECSTaskExecutionRolePolicy`
 
-8. Mở Log Group:
+8. Đăng ký **Task Definition revision** mới.
 
-   `/aws/ecs/game-server`
+9. Cập nhật **ECS Service** để sử dụng revision mới.
 
-9. Kiểm tra Log Stream đã được tạo và log của container đang được ghi nhận.
+10. Chờ Game Server Fargate Task chuyển sang trạng thái:
 
-   ![CloudWatch Logs Stream](/images/5/5.8/5.8.1/0002.png?featherlight=false&width=90pc)
+   `RUNNING`
 
-## 🛠️ Case Study: Xử lý lỗi AccessDenied
+## Kiểm tra CloudWatch Logs
 
-### Hiện tượng
+Sau khi Game Server Task khởi động thành công:
 
-Log Group trên CloudWatch đã tồn tại nhưng phần **Log streams** vẫn không có dữ liệu, mặc dù Game Server container đã khởi chạy thành công.
+1. Truy cập **Amazon CloudWatch**.
 
-### Nguyên nhân
+2. Chọn:
 
-**Task Execution Role** của ECS Task không có đủ quyền để tạo CloudWatch Log Stream và ghi Log Event.
+   **Logs** → **Log groups**
 
-### Cách xử lý
+3. Mở Log Group:
 
-Kiểm tra IAM Role được sử dụng bởi ECS Task Definition.
+   `/ecs/game-server-task`
 
-Đối với cấu hình ECS `awslogs` tiêu chuẩn, Task Execution Role cần có các quyền cần thiết để thực hiện các thao tác với CloudWatch Logs. Các quyền này thường được cung cấp thông qua AWS-managed policy:
+4. Kiểm tra ECS đã tạo **Log Stream**.
 
-`AmazonECSTaskExecutionRolePolicy`
+5. Mở Log Stream và kiểm tra các thông tin được ghi nhận từ Game Server container.
 
-Sau khi cập nhật quyền IAM, triển khai lại ECS Service để Task mới được khởi chạy với Execution Role đã được cập nhật.
+   ![Kiểm tra CloudWatch Log Stream](/awss-game-server-workshop/static/images/5/5.8/cloudlog2.png?featherlight=false&width=90pc)
 
-## Kiểm tra kết quả
 
-Khi cấu hình chính xác, log của Game Server container sẽ xuất hiện trên CloudWatch Logs.
+## Kiểm tra Log của Real-time Game Server
 
-Các loại log có thể theo dõi bao gồm:
+Do workshop triển khai **Real-time Game Server sử dụng WebSocket**, CloudWatch Logs có thể được sử dụng để theo dõi các sự kiện trong quá trình Game Server hoạt động, chẳng hạn:
 
-- Sự kiện khởi động Server
-- Sự kiện Client kết nối và ngắt kết nối
-- Trạng thái WebSocket connection
-- Application errors
-- Hoạt động của người chơi và thông tin Debug
+- Khởi động Game Server.
+- Client kết nối đến Game Server.
+- Client ngắt kết nối.
+- Message được nhận từ Client.
+- Message được gửi đến Client.
+- Hoạt động của Player hoặc Session.
+- Lỗi xảy ra trong ứng dụng.
+- Lỗi xử lý kết nối WebSocket.
 
-Kiến trúc Logging:
+Ví dụ, khi thực hiện kiểm thử bằng **Artillery**, Game Server có thể ghi nhận các log như:
 
 ```text
-ECS Fargate Task
-      │
-      │ Container stdout / stderr
-      ▼
-  awslogs Driver
-      │
-      ▼
-CloudWatch Log Group
-/aws/ecs/game-server
-      │
-      ▼
- CloudWatch Logs
+Received: hello from Artillery!
+Received: hello from Artillery!
+Received: hello from Artillery!

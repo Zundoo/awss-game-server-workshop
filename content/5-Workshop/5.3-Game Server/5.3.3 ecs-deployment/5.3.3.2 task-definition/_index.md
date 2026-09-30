@@ -45,7 +45,7 @@ pre : " <b> 5.5.2 </b> "
    | `REDIS_PORT` | `6379` |
    | `REDIS_TLS` | `true` |
 
-   ![Container and Environment Variables Setup in Task Definition](/images/5/5.5/5.5.2/0001.png?featherlight=false&width=90pc)
+   ![Container and Environment Variables Setup in Task Definition](/awss-game-server-workshop/static/images/5/5.5/gametak4.png?featherlight=false&width=90pc)
 
 6. Review the task definition configuration and click **Create**.
 

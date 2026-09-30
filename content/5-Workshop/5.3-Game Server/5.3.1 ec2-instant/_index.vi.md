@@ -35,10 +35,10 @@ pre : " <b> 5.3.1 </b> "
 
 3. Nhấn **Launch instance**.
 
-   ![Launch EC2 Instance](/images/5/5.2/ec2-launch.png?featherlight=false&width=90pc)
+   ![Launch EC2 Instance](/awss-game-server-workshop/static/images/5/5.2/ec2lunch.png?featherlight=false&width=90pc)
 
 4. Gắn IAM Role với policy `AmazonSSMManagedInstanceCore` để bật quyền truy cập thông qua Session Manager.
 
 5. Kết nối đến instance bằng **Session Manager**.
 
-   ![EC2 Connected via Session Manager](/images/5/5.2/ec2-ssm.png?featherlight=false&width=90pc)
+   ![EC2 Connected via Session Manager](/awss-game-server-workshop/static/images/5/5.2/ec2connect.png?featherlight=false&width=90pc)

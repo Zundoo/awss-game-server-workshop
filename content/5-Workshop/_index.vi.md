@@ -64,22 +64,18 @@ Sau khi hoàn thành Workshop, bạn sẽ học được cách:
 
 #### Điều hướng triển khai Workshop
 
-1. [5.1. IAM & Region Setup](5.1-IAM%20%26%20Region%20Setup/)
+1. [5.1. IAM & Regional Configuration](5.1-IAM%20%26%20Region%20Setup/)
 
 2. [5.2. Networking](5.2-Networking/)
 
-3. [5.3. Container Registry](5.3-Container-Registry/)
+3. [5.3. Game Server](5.3-Game%20Server/)
 
 4. [5.4. Database](5.4-Database/)
 
-5. [5.5. Game Server](5.5-Game-Server/)
+6. [5.5. Load Balancing](5.6-Load-Balancing/)
 
-6. [5.6. Load Balancing](5.6-Load-Balancing/)
+7. [5.6. Scaling](5.7-Scaling/)
 
-7. [5.7. Scaling](5.7-Scaling/)
+8. [5.7. Monitoring](5.8-Monitoring/)
 
-8. [5.8. Monitoring](5.8-Monitoring/)
-
-9. [5.9. CI/CD](5.9-ci-cd/)
-
-10. [5.10. Load Testing](5.10-load-testing/)
+10. [5.8. Load Testing](5.10-load-testing/)
