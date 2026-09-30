@@ -39,10 +39,8 @@ Customers who choose AWS Support gain one-on-one, fast-response support from AWS
 
 #### Main Content
 
-2. [Proposal](2-Proposal/)
-3. [Event](3-Event/)
+
 5. [Workshop](5-Workshop/)
-6. [Self-Assessment](6-Self-Assessment/)
-7. [Sharing and Feedback](7-Sharing-and-Feedback/)
+
 
 <!-- need to remove parenthesis for path in Hugo 0.88.1 for Windows-->
