@@ -14,8 +14,7 @@ This workshop focuses on the process of architecting, deploying, and testing a c
 
 The workshop uses the **Amazon Web Services (AWS)** ecosystem together with containerization, networking, security, database, load balancing, monitoring, and automated scaling technologies to build a reliable and scalable game server infrastructure.
 
-![Overall AWS Game Server Architecture Diagram](//images/architecture-diagram.png?featherlight=false&width=90pc)
-
+![Overall AWS Game Server Architecture Diagram](/images/Architecture.png?featherlight=false&width=90pc)
 {{% notice info %}}
 
 **Security Notice:**

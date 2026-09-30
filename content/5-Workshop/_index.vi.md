@@ -14,7 +14,7 @@ Workshop này tập trung vào quá trình thiết kế kiến trúc, triển kh
 
 Workshop sử dụng hệ sinh thái **Amazon Web Services (AWS)** kết hợp với các công nghệ về Containerization, Networking, Security, Database, Load Balancing, Monitoring và Auto Scaling để xây dựng một hạ tầng Game Server có khả năng hoạt động ổn định và mở rộng.
 
-![Sơ đồ kiến trúc AWS Game Server tổng thể](//images/architecture-diagram.png?featherlight=false&width=90pc)
+![Sơ đồ kiến trúc AWS Game Server tổng thể](/images/Architecture.png?featherlight=false&width=90pc)
 
 {{% notice info %}}
 
